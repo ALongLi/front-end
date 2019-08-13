@@ -2,8 +2,8 @@
 ## 快速原型开发
 可以快速识别.vue文件封装组件插件等功能
 ```bash
-sudo npm install @vue/cli -g
-sudo npm install -g @vue/cli-service-global
+ npm install @vue/cli -g
+ npm install -g @vue/cli-service-global
 vue serve App.vue
 ```
 ## 一.Props传递数据
