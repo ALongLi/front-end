@@ -2,9 +2,9 @@
 ## 快速原型开发
 可以快速识别.vue文件封装组件插件等功能
 ```bash
- npm install @vue/cli -g
- npm install -g @vue/cli-service-global
-vue serve App.vue
+  npm install @vue/cli -g
+  npm install -g @vue/cli-service-global
+  vue serve App.vue
 ```
 ## 一.Props传递数据
 ```tree
@@ -259,4 +259,4 @@ mounted() {
 
 ## 八.Vuex通信
 状态管理
-![](https://www.fullstackjavascript.cn/vuex.png)
+![](/blog/imgs/vuex.png)

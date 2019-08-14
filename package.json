@@ -1,9 +1,17 @@
 {
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "学习，以及问题解决方式",
+  "author": "fillter",
+  "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "vuepress": "^1.0.0-alpha.30"
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.2.0",
+    "vuepress": "^1.0.0-alpha.30",
+    "vuepress-plugin-cat": "^1.0.2"
   }
 }

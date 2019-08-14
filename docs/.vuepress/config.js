@@ -23,7 +23,8 @@ module.exports = {
             ],
             '/vue/': [
                 '',
-                'vue组件通信'
+                'vue组件通信',
+                'ElScrollbar'
             ],
             '/problem2solve/': [
                 '',
@@ -36,5 +37,8 @@ module.exports = {
             
         },
     },
+    plugins: [
+        "vuepress-plugin-cat",
+    ],
     base: '/blog/',
 }
