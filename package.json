@@ -6,12 +6,17 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",
+    "pub": "bash ./publish.sh",
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "node-sass": "^4.12.0",
     "sass-loader": "^7.2.0",
-    "vuepress": "^1.0.0-alpha.30",
+    "vuepress": "^1.1.0",
     "vuepress-plugin-cat": "^1.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.1",
+    "sh": "0.0.3"
   }
 }
