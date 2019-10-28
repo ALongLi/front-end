@@ -1,6 +1,6 @@
 ---
 home: true
 heroImage: /poluo.jpg
-actionText: 走你 →
+actionText: 开始 →
 actionLink: /javaScript/
 ---

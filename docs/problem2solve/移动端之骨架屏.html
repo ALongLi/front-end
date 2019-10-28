@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>移动端之骨架屏.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="%E4%B8%BA%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E9%AA%A8%E6%9E%B6%E5%B1%8F%EF%BC%88vue-%E5%AE%9E%E7%8E%B0%EF%BC%89">为移动端增加一个骨架屏（vue 实现）</h1>
+<p>在做移动端图表项目的时候，虽然 echarts 已经按需加载了，但是首次加载还是有那么几秒的白屏，思索再三，决定拿出来我以前研究的骨架屏，给它加上，接下来说下白屏的原因以及如何给项目添加一个骨架屏</p>
+<h2 id="%E7%99%BD%E5%B1%8F%E7%9A%84%E5%8E%9F%E5%9B%A0">白屏的原因</h2>
+<p>说到白屏的原因不得不说下浏览器的渲染原理。看张图</p>
+<p><img src="../imgs/browser.png" alt="browser"></p>
+<p>解析过程大概分为下面一些过程：</p>
+<ul>
+<li>FP（First Paint）：首次绘制，标记浏览器渲染任何在视觉上不同于导航前屏幕内容的时间点</li>
+<li>FCP（First Contentful Paint）：首次内容绘制，标记的是浏览器渲染第一帧内容 DOM 的时间点，该内容可能是文本、图像、等</li>
+<li>FMP（First Meaning Paint）：首次有效绘制，标记主角元素渲染完成的时间点</li>
+</ul>
+<p>由上可见 FP，FCP 对我们来说都是白屏，只有到了 FMP 才是可用的，接下来说下 vue 项目</p>
+<ul>
+<li>等待 HTML 文档返回，此时处于白屏状态</li>
+<li>对 HTML 文档解析完成后进行首屏渲染，白屏 因为 app 节点里啥都没有</li>
+<li>进行文件加载、JS 解析等过程，白屏 vue 项目主要消耗的时间。</li>
+<li>当 Vue 实例触发了 mounted 后，页面开始出现内容。</li>
+<li>所有请求完成后完整的页面呈现。</li>
+</ul>
+<h2 id="%E9%AA%A8%E6%9E%B6%E5%B1%8F%E5%8E%9F%E7%90%86">骨架屏原理</h2>
+<p>而骨架屏的原理就是将页面的布局结构注入到 app 节点内，然后在 mounted 之前页面就会一直显示骨架屏，直到 mounted 后替换节点内容
+未加骨架屏的时候 dom 结构是这样的</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>
+        &gt;</span>We're sorry but vant-rem doesn't work properly without JavaScript
+        enabled. Please enable it to continue.<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>
+      &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- built files will be auto injected --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>app 节点里啥都没有，而加了骨架屏 dom 节点大概是这样的</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>
+        &gt;</span>We're sorry but vant-rem doesn't work properly without JavaScript
+        enabled. Please enable it to continue.<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>
+      &gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"app"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+        <span class="hljs-attr">id</span>=<span class="hljs-string">"skeleton1"</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"skeleton1-wrapper"</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">"height:100%;overflow:hidden;display:none;"</span>
+      &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">android/img/skeleton.4781e042.png</span> <span class="hljs-attr">alt</span>
+        <span class="hljs-attr">style</span>=<span class="hljs-string">width:100vw;overflow:hidden;</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- built files will be auto injected --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<p>app 节点里有了一个图片来显示页面的大致结构，这样 mounted 之前页面就会一直显示骨架屏图片</p>
+<p>效果对比如下
+<img src="../imgs/skeleton-no.gif" alt="skeleton-no">
+加了骨架屏之后是这样的
+<img src="../imgs/sketelon.gif" alt="skeleton"></p>
+<p>可以看到首屏 mounted 之前页面显示的是骨架屏。这个项目后面没有直接出来页面结构主要是因为 mounted
+之后，页面挂载了太多的图片和图标，这时候图片还没加载完成，图表的数据是请求获取过来的。这一部分时间骨架屏就做不到了，毕竟
+不知道图片啥时候加载完，请求啥时候完成返回数据，可以通过其他方式优化</p>
+<h2 id="%E5%AE%9E%E7%8E%B0%E9%AA%A8%E6%9E%B6%E5%B1%8F">实现骨架屏</h2>
+<p>骨架屏的实现方式也多种多样，简单介绍下</p>
+<ol>
+<li>手写 HTML、CSS 的方式为目标页定制骨架屏，写在 public/index.html app 节点里面（费时费力）</li>
+<li>page-skeleton-webpack-plugin 自动生成并自动插入静态骨架屏，可惜这种方式只支持 history 模式还只有首屏</li>
+<li>vue-skeleton-webpack-plugin 这个倒是可以自动注入到 app 节点内，但是注入的内容还是要前端实现（可以一张图片），所以交给 ui 吧。</li>
+</ol>
+<p>权衡利弊个业务还是第三种方式最合适，下面开始实现
+安装：</p>
+<pre class="hljs"><code><div>npm install vue-skeleton-webpack-plugin
+</div></code></pre>
+<p>编写骨架屏</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!-- skeleton/skeleton1.vue --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height:100%;overflow:hidden;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:100vw;overflow:hidden;"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"@/assets/img/skeleton.png"</span> <span class="hljs-attr">alt</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!-- skeleton/skeleton2.vue --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> &gt;</span>另一个骨架屏<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</div></code></pre>
+<p>骨架屏配置文件</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">"vue"</span>;
+<span class="hljs-keyword">import</span> Skeleton1 <span class="hljs-keyword">from</span> <span class="hljs-string">"./Skeleton1.vue"</span>;
+<span class="hljs-keyword">import</span> Skeleton2 <span class="hljs-keyword">from</span> <span class="hljs-string">"./Skeleton2.vue"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Vue({
+  <span class="hljs-attr">components</span>: {
+    Skeleton1,
+    Skeleton2
+  },
+  <span class="hljs-comment">//render: h =&gt; h(Skeleton1,Skeleton2),</span>
+  template: <span class="hljs-string">`
+       &lt;div style='height: 100%;'&gt;
+           &lt;skeleton1 id="skeleton1" style="display:none"/&gt;
+           &lt;skeleton2 id="skeleton2" style="display:none"/&gt;
+       &lt;/div&gt;
+    `</span>
+});
+</div></code></pre>
+<p>随后在 cli3 中引入插件并配置</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//vue.config.js</span>
+<span class="hljs-keyword">const</span> SkeletonWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">"vue-skeleton-webpack-plugin"</span>);
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">publicPath</span>: <span class="hljs-string">"./"</span>,
+  <span class="hljs-attr">assetsDir</span>: <span class="hljs-string">"android"</span>,
+  <span class="hljs-attr">indexPath</span>: <span class="hljs-string">"index_android.html"</span>,
+  <span class="hljs-attr">productionSourceMap</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">chainWebpack</span>: <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> {
+    config.resolve.alias
+      .set(<span class="hljs-string">"@mock"</span>, resolve(<span class="hljs-string">"mock"</span>))
+      .set(<span class="hljs-string">"@assets"</span>, resolve(<span class="hljs-string">"src/assets"</span>));
+    <span class="hljs-comment">// 这里只写了两个个，你可以自己再加，按这种格式.set('', resolve(''))</span>
+  },
+
+  <span class="hljs-attr">configureWebpack</span>: <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> {
+    config.plugins.push(
+      <span class="hljs-keyword">new</span> SkeletonWebpackPlugin({
+        <span class="hljs-attr">webpackConfig</span>: {
+          <span class="hljs-attr">entry</span>: {
+            <span class="hljs-attr">app</span>: path.join(__dirname, <span class="hljs-string">"./src/skeleton/entry-skeleton.js"</span>) <span class="hljs-comment">//这里为上面的entry-skeleton.js</span>
+          }
+        },
+        <span class="hljs-attr">minimize</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">quiet</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">router</span>: {
+          <span class="hljs-attr">mode</span>: <span class="hljs-string">"hash"</span>,
+          <span class="hljs-attr">routes</span>: [
+            {
+              <span class="hljs-attr">path</span>: <span class="hljs-string">"/home"</span>, <span class="hljs-comment">//和router.js中的路径一样就行</span>
+              skeletonId: <span class="hljs-string">"skeleton1"</span> <span class="hljs-comment">//之前的id</span>
+            },
+            {
+              <span class="hljs-attr">path</span>: <span class="hljs-string">"/demo"</span>,
+              <span class="hljs-attr">skeletonId</span>: <span class="hljs-string">"skeleton2"</span>
+            }
+          ]
+        }
+      })
+    );
+    <span class="hljs-keyword">if</span> (process.env.NODE_ENV == <span class="hljs-string">"production"</span>) {
+      config.plugins.push(
+        <span class="hljs-keyword">new</span> FileManagerPlugin({
+          <span class="hljs-attr">onEnd</span>: {
+            <span class="hljs-attr">archive</span>: [{ <span class="hljs-attr">source</span>: <span class="hljs-string">"./dist"</span>, <span class="hljs-attr">destination</span>: <span class="hljs-string">"./dist/dist.zip"</span> }]
+          }
+        })
+      );
+    }
+    <span class="hljs-keyword">if</span> (process.env.use_analyzer) {
+      config.plugins.push(<span class="hljs-keyword">new</span> BundleAnalyzerPlugin());
+    }
+  }
+};
+</div></code></pre>
+<p>这样一个简单的骨架屏就完成了，下面是加骨架屏前后的展示形式对比
+未加骨架屏
+<img src="../imgs/normal-page.gif" alt="normal-page">
+加了骨架屏之后是这样的
+<img src="../imgs/has-skeleton.gif" alt="has-skeleton"></p>
+<p>按理来说这样在移动端首次加载的时候骨架屏就会替换白屏，但是在 oa 中由于终端对 webView 做了处理，
+直接用一个 loading 把骨架屏干掉了。所以 oa 中使用还需要终端把这个 loading 去掉，但是 oa 中 H5 应用挺多直接去掉其他的都会是白屏
+思考了下，可以在管理平台建应用的时候增加一个配置项是否有骨架屏，有的话终端就不用 loading，没有的话就依然保持现在的 loading</p>
+<h2 id="%E4%BB%A3%E7%A0%81%E5%9C%B0%E5%9D%80">代码地址</h2>
+<pre class="hljs"><code><div><span class="hljs-comment"># 克隆项目</span>
+git <span class="hljs-built_in">clone</span> git@gitlab.idc.safecenter.cn:lal/jsdata-mobile.git
+
+<span class="hljs-comment"># 进入项目目录</span>
+<span class="hljs-built_in">cd</span> jsdata-mobile
+
+<span class="hljs-comment"># 建议不要用 cnpm 安装 会有各种诡异的bug 可以通过如下操作解决 npm 下载速度慢的问题</span>
+npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org
+
+<span class="hljs-comment"># 安装依赖</span>
+npm install
+
+<span class="hljs-comment"># 跑服务</span>
+npm run serve
+
+</div></code></pre>
+<p>可以通过以上操作查看这个项目</p>
+<div class="tip">
+<p>强烈建议不要用直接使用 cnpm 安装，会有各种诡异的 bug ，我已经很久没用过 cnpm 了，可以通过重新指定 registry 来解决 npm 安装速度慢的问题。</p>
+<p>Windows 用户若安装不成功（大家基本都是），很大概率是<code>node-sass</code>安装失败，<a href="http://192.168.9.116:8090/pages/viewpage.action?pageId=9424363">解决方案</a>。</p>
+</div>
+<h2 id="%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">目录结构</h2>
+<pre class="hljs"><code><div>├─.browserslistrc ---------- // 浏览器配置
+├─.eslintrc.js ------------- // eslint配置
+├─.gitignore --------------- // git忽略文件
+├─babel.config.js ---------- // babel 插件配置
+├─mock --------------------- // 数据mock
+├─package-lock.json
+├─package.json
+├─postcss.config.js -------- // postcss 配置
+├─public
+│ ├─favicon.ico
+│ ├─images
+│ └─index.html
+├─src
+│ ├─App.vue
+│ ├─assets
+│ │ ├─css
+│ │ │ ├─main.scss
+│ │ │ ├─mixin.scss
+│ │ │ ├─transition.scss
+│ │ │ ├─_global.scss
+│ │ │ └─_variable.scss
+│ │ ├─font
+│ │ ├─img
+│ │ ├─json
+│ │ └─logo.png
+│ ├─components
+│ │ └─HelloWorld.vue
+│ ├─fetch
+│ │ ├─excelDownload.js ----- // excel文件下载函数
+│ │ ├─index.js ------------- // api接口管理入口
+│ │ └─instance.js ---------- // axios实例化
+│ ├─filters
+│ │ └─index.js ------------- // 全局过滤器
+│ ├─lib -------------------- // 第三方插件库
+│ │ ├─eoa.js
+│ │ └─initEcharts.js ------- // 初始化echarts配置
+│ ├─main.js ---------------- // app入口文件
+│ ├─router.js
+│ ├─skeleton --------------- // 骨架屏
+│ │ ├─entry-skeleton.js ---- // 骨架屏入口
+│ │ ├─home.vue
+│ │ └─demo.vue
+│ ├─store.js
+│ ├─utils ------------------ // 工具函数
+│ │ └─dom.js --------------- // dom操作
+│ └─views
+│   ├─demo.vue
+│   └─Home.vue
+└─vue.config.js
+</div></code></pre>
+<h2 id="%E9%97%AE%E9%A2%98%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">问题及注意事项</h2>
+<ul>
+<li>
+<p>骨架屏的文件和配置项入口均存放位置在 src/skeleton 文件夹下</p>
+</li>
+<li>
+<p>实际应用中骨架屏的 id 命名与路由的命名保持一致，模式选择 hash</p>
+</li>
+<li>
+<p>骨架屏的图片由 ui 实现，这里不考虑前端实现（复杂的前端很难实现，比如上面的地图）</p>
+<p>其实可以写 dom 来当做骨架屏内容，不过这种方式有点慢</p>
+</li>
+<li>
+<p>由于骨架屏的原理原因，所以路由跳转的时候是不会有骨架屏的，但是刷新的时候有</p>
+<p>如果想路由跳转的时候也有骨架屏，那么骨架屏就不要挂载在 app 内，新建一个 dom 节点。然后手动去控制消失。至于刷新，oa 中好像没有刷新的操作入口</p>
+</li>
+<li>
+<p>vue mounted 之后页面为啥会闪一下</p>
+<p>mounted 之后 vdom 会转换为 dom 挂载在 app 内，如果挂载的 dom 有太多的资源需要加载（一般是图片），这里用了太多的图片，导致闪了一下。</p>
+<p>如何解决？，可以在 mounted 之后，加一个和骨架屏一样的图片，然后过会再让他消失。</p>
+</li>
+<li>
+<p>终端来做骨架屏？</p>
+<p>其实是可以的，oa 中现在的 loading 图标，换成一个骨架屏图片，理论上是可行的。</p>
+</li>
+</ul>
+
+</body>
+</html>

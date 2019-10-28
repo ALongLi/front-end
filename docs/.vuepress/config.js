@@ -1,16 +1,17 @@
 module.exports = {
   title: "knowledge",
-  description: "花里胡哨",
+  description: "前端技术积累",
   head: [["link", { rel: "icon", href: "/favicon.png" }]],
   themeConfig: {
+    smoothScroll: true,
     nav: [
       {
-        text: "Blog",
+        text: "front-end",
         items: [
           { text: "javascript", link: "/javaScript/" },
           { text: "vue", link: "/vue/" },
           { text: "problem2solve", link: "/problem2solve/" },
-          { text: "vue-manager", link: "/vue2manager/" },
+          // { text: "vue-manager", link: "/vue2manager/" },
           { text: "vue-standards", link: "/vue2standards/" }
         ]
       },
@@ -19,18 +20,37 @@ module.exports = {
     ],
     sidebar: {
       "/javaScript/": ["", "数组去重", "urlSearchParams"],
-      "/vue/": ["", "vue组件通信", "ElScrollbar"],
+      "/vue/": [
+        {
+          title: "vue核心知识",
+          collapsable: false,
+          sidebarDepth: 2,
+          children: [
+            // "",
+            "vue组件通信"
+          ]
+        },
+        // "vue组件通信",
+        "ElScrollbar"
+      ],
       "/problem2solve/": [
-        "",
-        "前端文件下载",
-        "node-sass下载失败",
-        "element样式更改失效",
-        "更改数组的length为何生效了",
-        "浏览器顶部进度条",
-        "mock",
-        "mobile-rem",
-        "echarts按需加载",
-        "移动端之骨架屏"
+        {
+          title: "问题及解决方法",
+          collapsable: false,
+          children: [
+            // "",
+            "前端文件下载",
+            "node-sass下载失败",
+            "element样式更改失效",
+            "更改数组的length为何生效了",
+            "浏览器顶部进度条",
+            "mock",
+            "mobile-rem",
+            "echarts按需加载",
+            "移动端之骨架屏",
+            "pc大屏自适应"
+          ]
+        }
       ],
       "/vue2manager/": [
         {
@@ -48,12 +68,15 @@ module.exports = {
             "filterAndDirective",
             "chartAndIcon",
             "stylesheet",
-            "ESLint"
+            "ESLint",
+            "debounce",
+            "promise",
+            "reactiveData"
           ]
         }
       ]
     }
   },
   plugins: ["vuepress-plugin-cat"],
-  base: "/blog/"
+  base: "/front-end/"
 };
