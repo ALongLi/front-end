@@ -58,7 +58,7 @@
 ## Vue.\$set
 
 所以为了避免偶尔出现诡异的 bug，对于新增的对象属性，以及数组的一些操作，务必按照官网给出的写法
-`Vue.set( target, propertyName/index, value )`
+`Vue.$set( target, propertyName/index, value )`
 
 - {Object | Array} target
 - {string | number} propertyName/index
@@ -69,5 +69,14 @@
 // 不要使用这种方式
 this.myObject.newProperty = "hi";
 // 使用这种
-this.set(this.myObject, newProperty, "hi");
+this.$set(this.myObject, newProperty, "hi");
 ```
+
+## \$forceUpdate()
+
+迫使 Vue 实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。`Vue.$forceUpdate()`
+
+如果你发现你自己需要在 Vue 中做一次强制更新，99.9% 的情况，是你在某个地方做错了事。所以先检查自己代码哪里有问题
+如果实在花了大量的时间还是没有找到，那就先强制更新吧。
+
+一般是没有留意到数组或对象的变更检测注意事项，或者你可能依赖了一个未被 Vue 的响应式系统追踪的状态。

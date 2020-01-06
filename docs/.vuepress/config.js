@@ -12,7 +12,8 @@ module.exports = {
           { text: "vue", link: "/vue/" },
           { text: "problem2solve", link: "/problem2solve/" },
           // { text: "vue-manager", link: "/vue2manager/" },
-          { text: "vue-standards", link: "/vue2standards/" }
+          { text: "vue-standards", link: "/vue2standards/" },
+          { text: "electron", link: "/electron/" }
         ]
       },
       { text: "Project", link: "/Project/" },
@@ -61,7 +62,7 @@ module.exports = {
       ],
       "/vue2standards/": [
         {
-          title: "起步",
+          title: "正文(持续更新...)",
           collapsable: false,
           children: [
             "",
@@ -71,10 +72,12 @@ module.exports = {
             "ESLint",
             "debounce",
             "promise",
-            "reactiveData"
+            "reactiveData",
+            "gitcommit"
           ]
         }
-      ]
+      ],
+      "/electron/": ["", "electron-quick-start"]
     }
   },
   plugins: ["vuepress-plugin-cat"],
