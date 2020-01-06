@@ -1,3 +1,10 @@
+/*
+ * @description:
+ * @Author: lal
+ * @Date: 2020-01-04 16:04:03
+ * @LastEditors: lal
+ * @LastEditTime: 2020-01-06 17:07:52
+ */
 module.exports = {
   title: "knowledge",
   description: "前端技术积累",
@@ -73,7 +80,8 @@ module.exports = {
             "debounce",
             "promise",
             "reactiveData",
-            "gitcommit"
+            "gitcommit",
+            "oa"
           ]
         }
       ],
