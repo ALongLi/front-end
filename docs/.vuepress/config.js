@@ -81,7 +81,8 @@ module.exports = {
             "promise",
             "reactiveData",
             "gitcommit",
-            "oa"
+            "oa",
+            "oaBuild",
           ]
         }
       ],
