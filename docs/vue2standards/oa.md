@@ -794,4 +794,9 @@ export default oa;
 
 ## 最终演示效果
 
+方法智能提示与说明
 ![eslintFixed](../imgs/oa.gif)
+
+参数提示与说明
+
+![oa](../imgs/oa2.gif)
