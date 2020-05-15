@@ -83,6 +83,7 @@ module.exports = {
             "gitcommit",
             "oa",
             "oaBuild",
+            "deploy",
           ]
         }
       ],

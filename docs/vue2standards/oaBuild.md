@@ -1,11 +1,3 @@
-<!--
- * @description:
- * @Author: lal
- * @Date: 2020-01-08 08:44:42
- * @LastEditors  : lal
- * @LastEditTime : 2020-01-08 09:17:20
- -->
-
 # oa 打包简单优化
 
 oa 中目前使用的是 jenkins 打包流程，但是前端还是需要本地打包后再放上去（jenkins 打包前端太慢），然后就引出了一个源码仓库，一个打包仓库
