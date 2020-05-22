@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-01-06 17:07:52
+ * @LastEditTime: 2020-05-22 09:14:20
  */
 module.exports = {
   title: "knowledge",
@@ -20,11 +20,11 @@ module.exports = {
           { text: "problem2solve", link: "/problem2solve/" },
           // { text: "vue-manager", link: "/vue2manager/" },
           { text: "vue-standards", link: "/vue2standards/" },
-          { text: "electron", link: "/electron/" }
-        ]
+          { text: "electron", link: "/electron/" },
+        ],
       },
       { text: "Project", link: "/Project/" },
-      { text: "Resume", link: "/Resume/" }
+      { text: "Resume", link: "/Resume/" },
     ],
     sidebar: {
       "/javaScript/": ["", "数组去重", "urlSearchParams"],
@@ -35,11 +35,11 @@ module.exports = {
           sidebarDepth: 2,
           children: [
             // "",
-            "vue组件通信"
-          ]
+            "vue组件通信",
+          ],
         },
         // "vue组件通信",
-        "ElScrollbar"
+        "ElScrollbar",
       ],
       "/problem2solve/": [
         {
@@ -56,16 +56,16 @@ module.exports = {
             "mobile-rem",
             "echarts按需加载",
             "移动端之骨架屏",
-            "pc大屏自适应"
-          ]
-        }
+            "pc大屏自适应",
+          ],
+        },
       ],
       "/vue2manager/": [
         {
           title: "基础",
           collapsable: false,
-          children: ["", "Layout", "sideNav"]
-        }
+          children: ["", "Layout", "sideNav"],
+        },
       ],
       "/vue2standards/": [
         {
@@ -84,12 +84,12 @@ module.exports = {
             "oa",
             "oaBuild",
             "deploy",
-          ]
-        }
+          ],
+        },
       ],
-      "/electron/": ["", "electron-quick-start"]
-    }
+      "/electron/": ["", "electron-quick-start", "electron-process"],
+    },
   },
   plugins: ["vuepress-plugin-cat"],
-  base: "/front-end/"
+  base: "/front-end/",
 };

@@ -32,3 +32,176 @@ Electron = Node.js + Chromium + Native API
 - 一个渲染进程死了，另一个渲染进程页不会死，照常运行
 - 一个渲染进程死了，主进程不会卡死，还是可以开启其他窗口
 - 一个渲染进程页死了，渲染进程也会死
+
+### 体验 electron
+
+官网有一个简单的仓库，我们直接下载下来尝试
+
+```bash
+# Clone this repository
+git clone https://github.com/electron/electron-quick-start
+# Go into the repository
+cd electron-quick-start
+# Install dependencies
+npm install
+# Run the app
+npm start
+```
+
+结果很不幸的在 install 安装依赖的时候 命令行卡在 node install.js，这个文件是要从国外网络下载 electron.zip
+导致下载不下来
+
+::: tip
+npm 下载的包有两种类型，一种是就是 npm 上的 js 包直接就下完了，还有一种是 npm 包里去下载另外的开源软件，例如 node-sass, electron
+这种即便使用 npm 淘宝镜像也是下载不下来的，必要的时候还是要科学上网的。
+:::
+
+### 解决方法
+
+1. 前往淘宝镜像
+   https://npm.taobao.org/mirrors/electron/8.3.0/
+   手动下载对应的包，我用 windows，所以下载 electron-v8.3.0-win32-x64.zip
+   然后在 node_modules\electron\下创建 dist 文件夹。
+   将下载的压缩包解压进刚刚创建的 dist。
+   在 node_modules\electron\中创建 path.txt，内容为 electron.exe（对应自己的平台，不同平台不一样）
+
+这每次都要这样干也太麻烦了，
+
+2. 设置开源镜像软件代理，在 package.json 同目录下新建 .npmrc 文件，内容为 electron_mirror=https://npm.taobao.org/mirrors/electron/
+
+3. 删除 node_modules 重新执行 npm i,下载依赖，成功后执 npm run start
+
+### electron 集成 vue 方案对比
+
+1. electron-vue
+
+2. vue-cli-plugin-electron-builder
+
+#### electron-vue
+
+electron-vue 是 vue-cli2.0 的版本，现在 cli 的最新版本已经是都已经出到 4.3.1 了，再者 electron-vue 中间断更了很久我看了下提交记录有长达一年半的时间没有更新任何内容。不过这个集成方案里面用到的技术还是很有参考意义，并且使用这个方案也是能做出产品的。
+
+#### vue-cli-plugin-electron-builder
+
+vue-cli-plugin-electron-builder 是 cli 插件市场中的 electron 集成方案，项目结构也比较清晰，基本和 vue 项目保持一致。
+
+并且集成了开发环境与生产环境，打包使用的也是主流的 electron-builder 方案。
+
+> complete solution to package and build a ready for distribution Electron, Proton Native or Muon app for macOS, Windows and Linux with “auto update” support out of the box.
+
+简单的说，electron-builder 就是有比 electron-packager 有更丰富的的功能，支持更多的平台，同时也支持了自动更新。除了这几点之外，由 electron-builder 打出的包更为轻量，并且可以打包出不暴露源码的 setup 安装程序。
+
+### 实战 demo
+
+接下来的部分是对 vue 和 electron 开发的 demo。个人写文档都是采用 md 文件来记录，奈何公司 confluence 不支持 md 格式文件导入。
+那就开发一个 md 格式文件转成公司 confluence 支持的格式。麻雀虽小，五脏俱全，包含，开发，默认打包，以及安装软件问题等。
+
+先把需要的环境配好
+
+```bash
+npm config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass
+npm config set electron_mirror=https://npm.taobao.org/mirrors/electron/
+npm config set  phantomjs_cdnurl=http://cnpmjs.org/downloads
+npm config set  electron_mirror=https://npm.taobao.org/mirrors/electron/
+npm config set  chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver
+```
+
+把这些可能用到的开源软件包先配上代理
+
+```bash
+vue create vue-electron-demo
+```
+
+和平常 vue 开发一样，选择自己需要的选项，
+
+```bash
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─babel.config.js
+├─package-lock.json
+├─package.json
+├─public
+│ ├─favicon.ico
+│ └─index.html
+├─README.md
+└─src
+  ├─App.vue
+  ├─assets
+  │ └─logo.png
+  ├─components
+  │ └─HelloWorld.vue
+  ├─main.js
+  ├─router
+  │ └─index.js
+  ├─store
+  │ └─index.js
+  └─views
+    ├─About.vue
+    └─Home.vue
+
+```
+
+随后添加 vue-cli-plugin-electron-builder
+
+```bash
+
+vue add vue-cli-plugin-electron-builder
+```
+
+接下来等待安装成功即可
+
+安装完成后，目录会发生改变
+
+```bash
+
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─.npmrc
+├─babel.config.js
+├─package-lock.json
+├─package.json
+├─public
+│ ├─favicon.ico
+│ └─index.html
+├─README.md
+└─src
+  ├─App.vue
+  ├─assets
+  │ └─logo.png
+  ├─background.js    //多的主进程入口文件
+  ├─components
+  │ └─HelloWorld.vue
+  ├─main.js
+  ├─router
+  │ └─index.js
+  ├─store
+  │ └─index.js
+  └─views
+    ├─About.vue
+    └─Home.vue
+
+```
+
+其中 package.json 中会 多几条 script 脚本
+
+```json
+{
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  }
+}
+```
+
+我们执行 npm run electron:server，等待片刻
+
+打开如下界面表示启动成功
+
+![electron-vue-start](../imgs/electron-vue-start.png)
