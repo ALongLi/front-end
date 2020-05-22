@@ -205,3 +205,128 @@ vue add vue-cli-plugin-electron-builder
 打开如下界面表示启动成功
 
 ![electron-vue-start](../imgs/electron-vue-start.png)
+
+先测试下打包
+
+执行 `npm run electron:build`
+
+控制台会输出打包过程信息
+
+```bash
+ INFO  Building app with electron-builder:
+  • electron-builder  version=21.2.0 os=10.0.18363
+  • description is missed in the package.json  appPackageFile=E:\electron\vue-electron-demo\dist_electron\bundled\package.json
+  • author is missed in the package.json  appPackageFile=E:\electron\vue-electron-demo\dist_electron\bundled\package.json
+  • writing effective config  file=dist_electron\builder-effective-config.yaml
+  • packaging       platform=win32 arch=x64 electron=6.1.12 appOutDir=dist_electron\win-unpacked
+  • default Electron icon is used  reason=application icon is not set
+  • downloading     url=https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.5.0/winCodeSign-2.5.0.7z size=5.6 MB parts=1
+
+```
+
+可以看到在打包的时候会去 github 官网上下载 winCodeSign 软件包，直接从 GitHub 上下载出现的问题就是一直卡在下载过程然后失败。最简单的方法就是科学上网，另外就是想办法从 github 上把软件包下载下来放在本地。
+
+上述问题解决后，继续打包
+
+```bash
+
+ INFO  Building app with electron-builder:
+  • electron-builder  version=21.2.0 os=10.0.18363
+  • description is missed in the package.json  appPackageFile=E:\electron\vue-electron-demo\dist_electron\bundled\package.json
+  • author is missed in the package.json  appPackageFile=E:\electron\vue-electron-demo\dist_electron\bundled\package.json
+  • writing effective config  file=dist_electron\builder-effective-config.yaml
+  • packaging       platform=win32 arch=x64 electron=6.1.12 appOutDir=dist_electron\win-unpacked
+  • default Electron icon is used  reason=application icon is not set
+  • building        target=nsis file=dist_electron\vue-electron-demo Setup 0.1.0.exe archs=x64 oneClick=true perMachine=false
+  • building block map  blockMapFile=dist_electron\vue-electron-demo Setup 0.1.0.exe.blockmap
+ DONE  Build complete!
+
+```
+
+当看到 DONE Build complete!表示打包成功
+
+```bash
+
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─.npmrc
+├─babel.config.js
+├─dist_electron   //打包后生成的文件夹
+│ ├─builder-effective-config.yaml
+│ ├─bundled
+│ │ ├─background.js
+│ │ ├─css
+│ │ │ └─app.4aa4aa41.css
+│ │ ├─favicon.ico
+│ │ ├─img
+│ │ │ └─logo.82b9c7a5.png
+│ │ ├─index.html
+│ │ ├─js
+│ │ │ ├─about.d5b24448.js
+│ │ │ ├─about.d5b24448.js.map
+│ │ │ ├─app.a4a7a228.js
+│ │ │ ├─app.a4a7a228.js.map
+│ │ │ ├─chunk-vendors.284623cd.js
+│ │ │ └─chunk-vendors.284623cd.js.map
+│ │ ├─node_modules
+│ │ └─package.json
+│ ├─index.js
+│ ├─package.json
+│ ├─vue-electron-demo Setup 0.1.0.exe  //exe安装包
+│ ├─vue-electron-demo Setup 0.1.0.exe.blockmap
+│ └─win-unpacked    //免安装 绿色版
+
+```
+
+至此一个小流程就走完了
+
+我尝试安装了下，直接给我安装到 c 盘了，原因是没有进行打包配置
+
+接下来更改一下打包配置项。
+
+```js
+//vue-config.js
+module.exports = {
+  // ...
+  pluginOptions: {
+    electronBuilder: {
+      builderOptions: {
+        productName: "mac-test",
+        appId: "mac-test.desktop",
+        // win: {
+        //   icon: "./public/favicon.ico"
+        // },
+        // mac: {
+        //   icon: "./public/app.png"
+        // }
+        publish: [
+          //这个是升级用的
+          {
+            provider: "generic",
+            url: "http://127.0.0.1:80/", //这里是我本地开的服务器的地址
+          },
+        ],
+        nsis: {
+          oneClick: false, // 是否一键安装
+          allowElevation: true, // 允许请求提升。 如果为false，则用户必须使用提升的权限重新启动安装程序。
+          allowToChangeInstallationDirectory: true, // 允许修改安装目录
+          // installerIcon: "./build/icons/aaa.ico", // 安装图标
+          // uninstallerIcon: "./build/icons/bbb.ico", //卸载图标
+          // installerHeaderIcon: "./build/icons/aaa.ico", // 安装时头部图标
+          createDesktopShortcut: true, // 创建桌面图标
+          createStartMenuShortcut: true, // 创建开始菜单图标
+          shortcutName: "xxxx", // 图标名称
+          // include: "build/script/installer.nsh" // 包含的自定义nsis脚本
+        },
+      },
+    },
+  },
+};
+```
+
+打包后安装 exe 文件
+
+![install](../imgs/electron-install.gif)
+
+未完待续...
