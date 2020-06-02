@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-05-22 09:14:20
+ * @LastEditTime: 2020-05-28 16:49:50
  */
 module.exports = {
   title: "knowledge",
@@ -87,7 +87,7 @@ module.exports = {
           ],
         },
       ],
-      "/electron/": ["", "electron-quick-start", "electron-process"],
+      "/electron/": ["", "electron-quick-start", "electron-process", "electron-demo"],
     },
   },
   plugins: ["vuepress-plugin-cat"],

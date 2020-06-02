@@ -1,4 +1,4 @@
-## Electron
+## Electron vue 集成
 
 Electron = Node.js + Chromium + Native API
 
@@ -316,7 +316,7 @@ module.exports = {
           // installerHeaderIcon: "./build/icons/aaa.ico", // 安装时头部图标
           createDesktopShortcut: true, // 创建桌面图标
           createStartMenuShortcut: true, // 创建开始菜单图标
-          shortcutName: "xxxx", // 图标名称
+          shortcutName: "mac-test", // 图标名称
           // include: "build/script/installer.nsh" // 包含的自定义nsis脚本
         },
       },
@@ -329,4 +329,75 @@ module.exports = {
 
 ![install](../imgs/electron-install.gif)
 
-未完待续...
+### 代码设计与组织
+
+```bash
+
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─.npmrc
+├─.prettierrc
+├─.vscode
+├─babel.config.js
+├─debug.log
+├─dist_electron
+├─package-lock.json
+├─package.json
+├─public
+├─README.md
+├─src
+│ ├─App.vue
+│ ├─assets
+│ │ └─logo.png
+│ ├─background.js
+│ ├─components
+│ ├─main-process
+│ │ ├─communication -------------- // 进程通信
+│ │ │ └─ipc.js
+│ │ ├─menus ---------------------- // 菜单管理
+│ │ │ ├─config.js
+│ │ │ └─create.js
+│ │ ├─native-ui
+│ │ │ ├─dialogs ------------------ // 弹框，保存打开文件
+│ │ │ │ ├─error.js
+│ │ │ │ ├─index.js
+│ │ │ │ ├─information.js
+│ │ │ │ ├─open-file.js
+│ │ │ │ └─save.js
+│ │ │ ├─drag
+│ │ │ │ ├─codeIcon.png
+│ │ │ │ └─drag.js
+│ │ │ ├─notice ------------------- // 系统通知
+│ │ │ │ └─index.js
+│ │ │ └─tray --------------------- // 系统托盘
+│ │ │   ├─iconTemplate.png
+│ │ │   ├─iconTemplate@2x.png
+│ │ │   ├─tray.js
+│ │ │   └─windows-icon@2x.png
+│ │ ├─shortcuts ------------------ // 全局快捷键
+│ │ ├─system
+│ │ ├─update
+│ │ │ └─checkUpdate.js ----------- // 检测更新
+│ │ └─windows
+│ │   └─create-window.js --------- // 窗口管理
+│ ├─main.js
+│ ├─router
+│ ├─store
+│ ├─utils
+│ └─views
+├─vue.config.js
+```
+
+### 后续内容以及要解决的问题
+
+1. electron 原生菜单的自定义，菜单事件，菜单自定义事件。以及渲染进程的菜单自定义，菜单绑定快捷键，全局快捷键 --耿艳
+2. 进程间通信，交互包含选择本地文件上传，下载文件保存到本地。文件下载的默认位置配置项，类似微信 --辛柳
+3. 多窗口的维护与管理。窗口的最大化，最小化，显示在最前面的窗口，系统托盘，托盘闪烁。 --李阿龙
+4. electron-builder 方向打包。 --徐会忠
+5. electron-updater 方向升级方案，全量，增量。实现方式，以及各种方案适用场景，优劣对比 --李惠荣
+6. 调用 c++ dll 文件 --刘浩
+7. 要有 demo git 链接，http://gitlab.idc.safecenter.cn/electron。放在这个组下，自己新建git仓库
+
+electron-localshortcut
+electron-store
