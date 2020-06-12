@@ -3,12 +3,22 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-06-12 09:15:14
+ * @LastEditTime: 2020-06-12 11:33:19
  */
 module.exports = {
   title: "knowledge",
   description: "前端技术积累",
-  head: [["link", { rel: "icon", href: "/favicon.png" }]],
+  head: [
+    ["link", { rel: "icon", href: `/favicon.png` }],
+    ["link", { rel: "manifest", href: "/manifest.json" }],
+    ["meta", { name: "theme-color", content: "#3eaf7c" }],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
+    ["link", { rel: "apple-touch-icon", href: `/icons/apple-touch-icon-152x152.png` }],
+    ["link", { rel: "mask-icon", href: "/icons/safari-pinned-tab.svg", color: "#3eaf7c" }],
+    ["meta", { name: "msapplication-TileImage", content: "/icons/msapplication-icon-144x144.png" }],
+    ["meta", { name: "msapplication-TileColor", content: "#000000" }],
+  ],
   themeConfig: {
     smoothScroll: true,
     nav: [
@@ -96,6 +106,15 @@ module.exports = {
       ],
     },
   },
-  plugins: ["vuepress-plugin-cat"],
+  plugins: [
+    "vuepress-plugin-cat",
+    [
+      "@vuepress/pwa",
+      {
+        serviceWorker: true,
+        updatePopup: true,
+      },
+    ],
+  ],
   base: "/front-end/",
 };
