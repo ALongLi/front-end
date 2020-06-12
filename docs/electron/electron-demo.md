@@ -1,4 +1,4 @@
-## Electron 开发
+# Electron 开发
 
 `Electron = Node.js + Chromium + Native API`
 
@@ -8,7 +8,7 @@
 
 既然 Electron 提供了这三种环境是不是就意味着在 Electron 里写的 js，都可以使用上述三个环境的各种 api 嘛？当然不是，如果是这样，就会造成混乱，electron 同样采用了浏览器的多进程架构，一个主进程，多个渲染进程
 
-### Electron 本次培训内容
+## Electron 本次培训内容
 
 1. 菜单，自定义菜单
 2. 进程间通讯
@@ -20,7 +20,7 @@
 8. 升级
 9. 代码的组织
 
-### 菜单，自定义菜单
+## 菜单，自定义菜单
 
 主进程提供的 Menu 类，来创建菜单等功能。主要用到的有两个静态方法
 
@@ -75,7 +75,7 @@ undo, redo, cut, copy, paste, pasteAndMatchStyle, delete, selectAll, reload, for
 
 如果觉得丑就不要菜单，自己定义`Menu.setApplicationMenu(null)`
 
-### 主进程 main-process
+## 主进程 main-process
 
 主进程作用
 
@@ -85,7 +85,7 @@ undo, redo, cut, copy, paste, pasteAndMatchStyle, delete, selectAll, reload, for
 - 自动更新
 - 工具条菜单栏注册
 
-### 渲染进程 renderer-process
+## 渲染进程 renderer-process
 
 界面交互相关的，具体的业务功能，都由 renderer 进程来做，和平时开发 web 项目一致。
 
@@ -96,7 +96,7 @@ undo, redo, cut, copy, paste, pasteAndMatchStyle, delete, selectAll, reload, for
 - 一个渲染进程死了，主进程不会卡死，还是可以开启其他窗口
 - 一个渲染进程页死了，渲染进程也会死。
 
-### 进程间通讯
+## 进程间通讯
 
 进程间通信主要通过 ipc 模块来完成。也可以使用 remote,不过这里只讲 ipc 通讯的方式 `ipcMac`, `ipcRenderer` 。
 
@@ -201,7 +201,7 @@ ipc 的顶层是通过 EventEmitter 来实现的，前端技术的很多机制�
 
 更有甚着可以使用数据库。例如 `Sqlite3`
 
-### 渲染进程窗口管理
+## 渲染进程窗口管理
 
 管理好窗口能更有利于组织代码，防止内存泄漏等。如何避免重复创建窗口，窗口的聚焦，窗口最大化，最小化等。
 下面一一说明
@@ -325,13 +325,13 @@ function createWindow(windowId, opt, url) {
 export { createWindow, windows };
 ```
 
-### 文件操作
+## 文件操作
 
 electron 相比较 web 很明显的一个特点就是可以进行文件 io 操作，例如读取本地文件内容显示，保存文件到指定地方。
 先来试一下打开本地文件。
 打开，保存都是调用的 dialog 模块
 
-#### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
+## `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
 - `browserWindow` BrowserWindow (optional)
 - `options` Object
@@ -390,7 +390,7 @@ async function openFile() {
 
 保存文件和打开文件时同样的道理只是调用的方法不同
 
-#### `dialog.showSaveDialog([browserWindow, ]options)`
+## `dialog.showSaveDialog([browserWindow, ]options)`
 
 保存调用上面的方法，options 大致一样，大家自行看 api 了解
 
@@ -414,7 +414,7 @@ ipcMain.handle("save-dialog", async (event, { name, value }) => {
 });
 ```
 
-### 快捷键
+## 快捷键
 
 electron 同意提供了全局快捷键功能。这里提供一个`F5`刷新的功能
 
@@ -450,7 +450,7 @@ app.on("window-all-closed", () => {
 });
 ```
 
-### 系统托盘
+## 系统托盘
 
 一般我们在关闭应用的时候会有个最小化到系统托盘的交互，这时候再双击会显示出主窗口。electron 同样提供了这种功能
 
@@ -536,7 +536,7 @@ app.on("window-all-closed", () => {
 export default createTray;
 ```
 
-### 打包配置
+## 打包配置
 
 打包这里只使用 `electron-builder` 不考虑其他的。阿里都在用的打包工具，还是很值得肯定的。而且配置也很简单。
 
@@ -617,7 +617,7 @@ module.exports = {
 
 当看到 DONE Build complete!表示打包成功
 
-### 升级
+## 升级
 
 这里不说 electron 自带的 autoUpdater。而是说一个和 electron-builder 配套使用的 electron-updater。使用也比较简单
 
@@ -690,7 +690,7 @@ let checkForUpdates = () => {
 
 另外还有增量更新...
 
-### 文件及代码设计
+## 文件及代码设计
 
 ```bash
 

@@ -1,8 +1,8 @@
-## electron-quick-start
+# electron-quick-start
 
 Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个 Node. js 的变体，它专注于桌面应用而不是 Web 服务器端。
 
-### 体验 electron
+## 体验 electron
 
 官网有一个简单的仓库，我们直接下载下来尝试
 
@@ -25,7 +25,7 @@ npm start
 
 主要是这个包 electron-v7.0.0-win32-x64.zip 没下载下来，然后就去 google 找解决办法
 
-### 解决方法
+## 解决方法
 
 前往淘宝镜像
 https://npm.taobao.org/mirrors/electron/7.0.0/

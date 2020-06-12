@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-05-28 16:49:50
+ * @LastEditTime: 2020-06-12 09:15:14
  */
 module.exports = {
   title: "knowledge",
@@ -87,7 +87,13 @@ module.exports = {
           ],
         },
       ],
-      "/electron/": ["", "electron-quick-start", "electron-process", "electron-demo"],
+      "/electron/": [
+        {
+          title: "正文(持续更新...)",
+          collapsable: false,
+          children: ["", "electron-quick-start", "electron-process", "electron-demo"],
+        },
+      ],
     },
   },
   plugins: ["vuepress-plugin-cat"],
