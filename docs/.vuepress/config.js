@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-06-12 11:33:19
+ * @LastEditTime: 2020-06-15 14:38:13
  */
 module.exports = {
   title: "knowledge",
@@ -101,7 +101,13 @@ module.exports = {
         {
           title: "正文(持续更新...)",
           collapsable: false,
-          children: ["", "electron-quick-start", "electron-process", "electron-demo"],
+          children: [
+            "",
+            "electron-quick-start",
+            "electron-process",
+            "electron-demo",
+            "electron-windows",
+          ],
         },
       ],
     },

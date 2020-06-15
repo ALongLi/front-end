@@ -1,3 +1,10 @@
+###
+ # @description: 
+ # @Author: lal
+ # @Date: 2020-01-04 16:04:03
+ # @LastEditors: lal
+ # @LastEditTime: 2020-06-12 13:56:47
+### 
 #!/usr/bin/env sh
 
 # 确保脚本抛出遇到的错误
@@ -20,6 +27,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/ALongLi/blog.git master:gh-pages
+git push -f https://github.com/ALongLi/front-end.git master:gh-pages
 
 cd -
