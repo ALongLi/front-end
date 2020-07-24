@@ -3,10 +3,10 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-06-15 14:38:13
+ * @LastEditTime: 2020-07-18 10:33:19
  */
 module.exports = {
-  title: "knowledge",
+  title: "信大捷安前端团队",
   description: "前端技术积累",
   head: [
     ["link", { rel: "icon", href: `/favicon.png` }],
@@ -31,6 +31,7 @@ module.exports = {
           // { text: "vue-manager", link: "/vue2manager/" },
           { text: "vue-standards", link: "/vue2standards/" },
           { text: "electron", link: "/electron/" },
+          { text: "web 安全", link: "/security/" },
         ],
       },
       { text: "Project", link: "/Project/" },
@@ -108,6 +109,13 @@ module.exports = {
             "electron-demo",
             "electron-windows",
           ],
+        },
+      ],
+      "/security/": [
+        {
+          title: "正文(持续更新...)",
+          collapsable: false,
+          children: ["", "xss"],
         },
       ],
     },

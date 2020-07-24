@@ -125,7 +125,7 @@ top.show();
 
 `child` 窗口将总是显示在 `top` 窗口的顶部.
 
-### Modal windows
+## Modal windows
 
 模态窗口是禁用父窗口的子窗口，创建模态窗口必须设置 `parent` 和 `modal` 选项：
 
@@ -139,7 +139,7 @@ child.once("ready-to-show", () => {
 });
 ```
 
-### 无边框窗口
+## 无边框窗口
 
 无边框窗口是不带外壳（包括窗口边框、工具栏等），只含有网页内容的窗口。 这些是 `BrowserWindow` 类上的选项。
 
@@ -266,14 +266,16 @@ export { createWindow, windows };
 
 ## 系统托盘
 
-一般我们在关闭应用的时候会有个最小化到系统托盘的交互，这时候再双击会显示出主窗口。electron 同样提供了这种功能
+一般我们在点击窗口的 `X` 的时候会询问是退出还是最小化到系统托盘的交互，如果是退出，那很好说，直接就退了，如果是最小化，就牵涉到系统托盘了。这时候再双击或者单击托盘图标会显示出主窗口。electron 同样提供了这种功能
+
+### 基本用法
 
 ```js
 const { app, Menu, Tray } = require("electron");
 
 let appIcon = null;
 app.on("ready", () => {
-  appIcon = new Tray("/path/to/my/icon");
+  appIcon = new Tray("/path/to/my/icon"); //图标地址
   const contextMenu = Menu.buildFromTemplate([
     { label: "Item1", type: "radio" },
     { label: "Item2", type: "radio" },
@@ -281,11 +283,66 @@ app.on("ready", () => {
 
   // Make a change to the context menu
   contextMenu.items[1].checked = false;
+  // 鼠标悬浮提示
+  appIcon.setToolTip("Electron Demo in the tray.");
 
   // Call this again for Linux because we modified the context menu
   appIcon.setContextMenu(contextMenu);
 });
 ```
+
+### 集成 vue 的用法
+
+```js
+const { ipcMain, app, Menu, Tray } = require("electron");
+import { windows } from "../../windows/create-window";
+import log from "electron-log";
+
+let appIcon = null;
+
+function createTray() {
+  const iconName = "windows-icon.png";
+  // eslint-disable-next-line no-undef
+  let iconPath = `${__static}/${iconName}`;
+  // const iconPath = path.join(__dirname, iconName);
+  appIcon = new Tray(iconPath);
+
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: "退出",
+      click: () => {
+        windows["mainWindow"] = null;
+        delete windows["mainWindow"];
+        log.info("退出");
+        app.quit();
+        app.exit();
+        appIcon.destroy();
+      },
+    },
+  ]);
+
+  appIcon.setToolTip("Electron Demo in the tray.");
+  appIcon.setContextMenu(contextMenu);
+
+  appIcon.on("double-click", function() {
+    if (windows["mainWindow"]) {
+      windows["mainWindow"].show();
+    }
+  });
+}
+
+ipcMain.on("remove-tray", () => {
+  appIcon.destroy();
+});
+
+app.on("window-all-closed", () => {
+  if (appIcon) appIcon.destroy();
+});
+
+export default createTray;
+```
+
+### 托盘闪烁
 
 ```js
 const { ipcMain, app, Menu, Tray } = require("electron");
@@ -328,16 +385,15 @@ function createTray() {
     }
   });
 
-  // var count = 0;
-  // setInterval(function() {
-  //   if (count++ % 2 == 0) {
-  //     appIcon.setImage(iconPath);
-  //   } else {
-  //     appIcon.setImage(iconPath2);
-  //   }
-  // }, 400);
+  let count = 0;
+  let timer = setInterval(function() {
+    if (count++ % 2 == 0) {
+      appIcon.setImage(iconPath);
+    } else {
+      appIcon.setImage(iconPath2);
+    }
+  }, 400);
 }
-// ipcMain.on("put-in-tray", event => {});
 
 ipcMain.on("remove-tray", () => {
   appIcon.destroy();
@@ -392,8 +448,6 @@ export default createTray;
 │ │ │ ├─notice ------------------- // 系统通知
 │ │ │ │ └─index.js
 │ │ │ └─tray --------------------- // 系统托盘
-│ │ │   ├─iconTemplate.png
-│ │ │   ├─iconTemplate@2x.png
 │ │ │   ├─tray.js
 │ │ │   └─windows-icon@2x.png
 │ │ ├─shortcuts ------------------ // 全局快捷键
