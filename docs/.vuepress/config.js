@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-07-18 10:33:19
+ * @LastEditTime: 2020-08-08 10:52:22
  */
 module.exports = {
   title: "信大捷安前端团队",
@@ -68,6 +68,7 @@ module.exports = {
             "echarts按需加载",
             "移动端之骨架屏",
             "pc大屏自适应",
+            "cli",
           ],
         },
       ],

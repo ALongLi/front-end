@@ -133,3 +133,21 @@ console.log(encodeForHTMLAttribute(str)); // "&#x3c;img&#x20;onerror&#x3d;&#x22;
 [web 前端黑客技术揭秘](https://book.douban.com/subject/20451827/)
 
 [白帽子讲 Web 安全](https://book.douban.com/subject/10546925/)
+
+## 常见漏扫问题
+
+1. Vulnerable Javascript library,/jquery.min.js
+
+   jq 版本有漏洞，大家一般用的都是 1.11.1 这个版本，再往上基本就是 2.0 了，大版本更新会有兼容性问题
+   解决方法更改源码
+
+2. Password field submitted using GET method
+
+   这个问题就比较奇葩了，就算你请求发的是 post 他也会报这个错
+   解决方法`<form>` 更改为 `<form method="POST">`
+
+3. HTML form without CSRF protection
+
+   表单没有 csrf 防范，这个扫描出来的也没有明确说有这问题，让你自己人工确认是否有这个问题
+
+4. 登录密码明文传送
