@@ -148,6 +148,13 @@ console.log(encodeForHTMLAttribute(str)); // "&#x3c;img&#x20;onerror&#x3d;&#x22;
 
 3. HTML form without CSRF protection
 
-   表单没有 csrf 防范，这个扫描出来的也没有明确说有这问题，让你自己人工确认是否有这个问题
+   表单没有 csrf 防范，这个扫描出来的也没有明确说有这问题，让你自己人工确认是否有这个问题，在 `<form>` 表单里增加一个无用的 `input`
+   `<input type="hidden" name="csrf_token"/>`
 
 4. 登录密码明文传送
+
+   先对密码进行 md5 加密，再通过密钥使用 sha512 加密
+   统一解决方案在 `\\fileserver.xdja.com\信大捷安\部门文件\研发中心\行业后台\java培训资料\第二课时\testWeb` 里面，包含了前端和后端的加密逻辑
+
+5. 登录界面验证码
+   使用 canvas 生成一个验证码校验，目前我这有 jq 插件和 vue 组件

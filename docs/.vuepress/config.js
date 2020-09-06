@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-08-08 10:52:22
+ * @LastEditTime: 2020-09-04 16:48:20
  */
 module.exports = {
   title: "信大捷安前端团队",
@@ -114,9 +114,9 @@ module.exports = {
       ],
       "/security/": [
         {
-          title: "正文(持续更新...)",
+          title: "web安全",
           collapsable: false,
-          children: ["", "xss"],
+          children: ["xss", "api-safe"],
         },
       ],
     },
