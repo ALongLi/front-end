@@ -3,10 +3,10 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-10-09 09:43:45
+ * @LastEditTime: 2021-04-21 14:06:19
  */
 module.exports = {
-  title: "信大捷安前端团队",
+  title: "前端技术积累",
   description: "前端技术积累",
   head: [
     ["link", { rel: "icon", href: `/favicon.png` }],
@@ -133,4 +133,4 @@ module.exports = {
     ],
   ],
   base: "/front-end/",
-};
+}
