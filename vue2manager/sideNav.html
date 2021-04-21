@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>侧边栏导航 | 前端技术积累</title>
+    <meta name="description" content="前端技术积累">
+    <link rel="icon" href="/front-end/favicon.png">
+  <link rel="manifest" href="/front-end/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/front-end/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/front-end/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/front-end/assets/css/0.styles.45a4b416.css" as="style"><link rel="preload" href="/front-end/assets/js/app.c7135e9d.js" as="script"><link rel="preload" href="/front-end/assets/js/2.1d0a08e0.js" as="script"><link rel="preload" href="/front-end/assets/js/42.bf5027f2.js" as="script"><link rel="preload" href="/front-end/assets/js/5.af0ad02b.js" as="script"><link rel="prefetch" href="/front-end/assets/js/10.5c60d517.js"><link rel="prefetch" href="/front-end/assets/js/11.04c7b6f7.js"><link rel="prefetch" href="/front-end/assets/js/12.2631a9cc.js"><link rel="prefetch" href="/front-end/assets/js/13.d013621e.js"><link rel="prefetch" href="/front-end/assets/js/14.a8e96e0a.js"><link rel="prefetch" href="/front-end/assets/js/15.110ef80e.js"><link rel="prefetch" href="/front-end/assets/js/16.437974b1.js"><link rel="prefetch" href="/front-end/assets/js/17.cc850d22.js"><link rel="prefetch" href="/front-end/assets/js/18.7a43d55d.js"><link rel="prefetch" href="/front-end/assets/js/19.3e51c5fd.js"><link rel="prefetch" href="/front-end/assets/js/20.eebe5ba5.js"><link rel="prefetch" href="/front-end/assets/js/21.bf474d6d.js"><link rel="prefetch" href="/front-end/assets/js/22.73573e5f.js"><link rel="prefetch" href="/front-end/assets/js/23.a1884b15.js"><link rel="prefetch" href="/front-end/assets/js/24.74e1c549.js"><link rel="prefetch" href="/front-end/assets/js/25.cb237747.js"><link rel="prefetch" href="/front-end/assets/js/26.64e2b81b.js"><link rel="prefetch" href="/front-end/assets/js/27.f9ef4947.js"><link rel="prefetch" href="/front-end/assets/js/28.7bb2f5d7.js"><link rel="prefetch" href="/front-end/assets/js/29.e2efe323.js"><link rel="prefetch" href="/front-end/assets/js/3.2c743d40.js"><link rel="prefetch" href="/front-end/assets/js/30.01a290f1.js"><link rel="prefetch" href="/front-end/assets/js/31.a95c01c0.js"><link rel="prefetch" href="/front-end/assets/js/32.5f35d2dd.js"><link rel="prefetch" href="/front-end/assets/js/33.3e5cbc31.js"><link rel="prefetch" href="/front-end/assets/js/34.cbe14eb2.js"><link rel="prefetch" href="/front-end/assets/js/35.567e2f4c.js"><link rel="prefetch" href="/front-end/assets/js/36.0e4486ed.js"><link rel="prefetch" href="/front-end/assets/js/37.88819989.js"><link rel="prefetch" href="/front-end/assets/js/38.532761e6.js"><link rel="prefetch" href="/front-end/assets/js/39.58f0672e.js"><link rel="prefetch" href="/front-end/assets/js/4.a6f5780b.js"><link rel="prefetch" href="/front-end/assets/js/40.eb8cbeea.js"><link rel="prefetch" href="/front-end/assets/js/41.8106b725.js"><link rel="prefetch" href="/front-end/assets/js/43.a357d906.js"><link rel="prefetch" href="/front-end/assets/js/44.e8ddaddc.js"><link rel="prefetch" href="/front-end/assets/js/45.f1a8ed18.js"><link rel="prefetch" href="/front-end/assets/js/46.ab0f65f9.js"><link rel="prefetch" href="/front-end/assets/js/47.794903bf.js"><link rel="prefetch" href="/front-end/assets/js/48.62a88661.js"><link rel="prefetch" href="/front-end/assets/js/49.22f79c70.js"><link rel="prefetch" href="/front-end/assets/js/50.c7bd743b.js"><link rel="prefetch" href="/front-end/assets/js/51.aa17b27a.js"><link rel="prefetch" href="/front-end/assets/js/52.153e4a87.js"><link rel="prefetch" href="/front-end/assets/js/53.829b7e16.js"><link rel="prefetch" href="/front-end/assets/js/54.8037840a.js"><link rel="prefetch" href="/front-end/assets/js/55.ba2a77b3.js"><link rel="prefetch" href="/front-end/assets/js/6.841c37b8.js"><link rel="prefetch" href="/front-end/assets/js/7.00121bac.js"><link rel="prefetch" href="/front-end/assets/js/8.a4cecec3.js"><link rel="prefetch" href="/front-end/assets/js/9.3945ebc6.js">
+    <link rel="stylesheet" href="/front-end/assets/css/0.styles.45a4b416.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/front-end/" class="home-link router-link-active"><!----> <span class="site-name">前端技术积累</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="front-end" class="dropdown-title"><span class="title">front-end</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front-end/javaScript/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/front-end/problem2solve/" class="nav-link">problem2solve</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue2standards/" class="nav-link">vue-standards</a></li><li class="dropdown-item"><!----> <a href="/front-end/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/front-end/security/" class="nav-link">web 安全</a></li></ul></div></div><div class="nav-item"><a href="/front-end/Project/" class="nav-link">Project</a></div><div class="nav-item"><a href="/front-end/Resume/" class="nav-link">Resume</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="front-end" class="dropdown-title"><span class="title">front-end</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front-end/javaScript/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/front-end/problem2solve/" class="nav-link">problem2solve</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue2standards/" class="nav-link">vue-standards</a></li><li class="dropdown-item"><!----> <a href="/front-end/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/front-end/security/" class="nav-link">web 安全</a></li></ul></div></div><div class="nav-item"><a href="/front-end/Project/" class="nav-link">Project</a></div><div class="nav-item"><a href="/front-end/Resume/" class="nav-link">Resume</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/front-end/vue2manager/" class="sidebar-link">介绍</a></li><li><a href="/front-end/vue2manager/Layout.html" class="sidebar-link">布局</a></li><li><a href="/front-end/vue2manager/sideNav.html" class="active sidebar-link">侧边栏导航</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/front-end/vue2manager/sideNav.html#数据配置项" class="sidebar-link">数据配置项</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2manager/sideNav.html#使用" class="sidebar-link">使用</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2manager/sideNav.html#sidebar-item" class="sidebar-link">sidebar-item</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2manager/sideNav.html#点击侧边栏，跳转与刷新路由" class="sidebar-link">点击侧边栏，跳转与刷新路由</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2manager/sideNav.html#redirect" class="sidebar-link">redirect</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="侧边栏导航"><a href="#侧边栏导航" class="header-anchor">#</a> 侧边栏导航</h1> <p>单页的后台管理系统侧边栏导航几乎都是和路由绑定的，点击侧边导航显示不同的路由，侧边栏导航使用的是对<code>element ui</code>中的菜单导航组件的二次封装，
+只要给菜单导航数据，侧边栏就能动态的生成了。大大减轻了手动重复编辑侧边栏的工作量。当然菜单数据需要遵守一些约定。</p> <h2 id="数据配置项"><a href="#数据配置项" class="header-anchor">#</a> 数据配置项</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> menuList <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token comment">// 子路由，没有为空，有就渲染子路由</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 后台存储的菜单导航唯一 id</span>
+    funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc10&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 路由视图的router-link,若有子路由为空</span>
+    href<span class="token punctuation">:</span> <span class="token string">&quot;/home&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 一级菜单显示的图标</span>
+    icon<span class="token punctuation">:</span> <span class="token string">&quot;iconshouye&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 导航菜单显示的 label 文案 需要与路由配置项中的 title一样 meta: {title: &quot;mock数据&quot;},</span>
+    label<span class="token punctuation">:</span> <span class="token string">&quot;首页&quot;</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc1004&quot;</span><span class="token punctuation">,</span>
+        href<span class="token punctuation">:</span> <span class="token string">&quot;/components/drag-dialog&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">&quot;DragDialogDemo&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        funcId<span class="token punctuation">:</span> <span class="token string">&quot;components1004&quot;</span><span class="token punctuation">,</span>
+        href<span class="token punctuation">:</span> <span class="token string">&quot;/components/click-outside&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">&quot;clickOutside&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc110&quot;</span><span class="token punctuation">,</span>
+    href<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    icon<span class="token punctuation">:</span> <span class="token string">&quot;iconzujian&quot;</span><span class="token punctuation">,</span>
+    label<span class="token punctuation">:</span> <span class="token string">&quot;组件&quot;</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc1004&quot;</span><span class="token punctuation">,</span>
+        href<span class="token punctuation">:</span> <span class="token string">&quot;/setting/user&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">&quot;用户设置&quot;</span><span class="token punctuation">,</span>
+        type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc10&quot;</span><span class="token punctuation">,</span>
+    href<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    icon<span class="token punctuation">:</span> <span class="token string">&quot;iconshezhi&quot;</span><span class="token punctuation">,</span>
+    label<span class="token punctuation">:</span> <span class="token string">&quot;系统设置&quot;</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc40021&quot;</span><span class="token punctuation">,</span>
+            href<span class="token punctuation">:</span> <span class="token string">&quot;/nested/menu1/menu1-1&quot;</span><span class="token punctuation">,</span>
+            icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            label<span class="token punctuation">:</span> <span class="token string">&quot;菜单1-1&quot;</span><span class="token punctuation">,</span>
+            type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc40021&quot;</span><span class="token punctuation">,</span>
+            href<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            label<span class="token punctuation">:</span> <span class="token string">&quot;菜单1-2&quot;</span><span class="token punctuation">,</span>
+            type<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+            children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc40021&quot;</span><span class="token punctuation">,</span>
+                href<span class="token punctuation">:</span> <span class="token string">&quot;/nested/menu1/menu1-2/menu1-2-1&quot;</span><span class="token punctuation">,</span>
+                icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                label<span class="token punctuation">:</span> <span class="token string">&quot;菜单1-2-1&quot;</span><span class="token punctuation">,</span>
+                type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc40021&quot;</span><span class="token punctuation">,</span>
+                href<span class="token punctuation">:</span> <span class="token string">&quot;/nested/menu1/menu1-2/menu1-2-2&quot;</span><span class="token punctuation">,</span>
+                icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                label<span class="token punctuation">:</span> <span class="token string">&quot;菜单1-2-2&quot;</span><span class="token punctuation">,</span>
+                type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc4002&quot;</span><span class="token punctuation">,</span>
+        href<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">&quot;菜单1&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc4002&quot;</span><span class="token punctuation">,</span>
+        href<span class="token punctuation">:</span> <span class="token string">&quot;/nested/menu2&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">&quot;菜单2&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc40&quot;</span><span class="token punctuation">,</span>
+    href<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    icon<span class="token punctuation">:</span> <span class="token string">&quot;iconcaidan&quot;</span><span class="token punctuation">,</span>
+    label<span class="token punctuation">:</span> <span class="token string">&quot;多级菜单&quot;</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc40021&quot;</span><span class="token punctuation">,</span>
+        href<span class="token punctuation">:</span> <span class="token string">&quot;/mock/table&quot;</span><span class="token punctuation">,</span>
+        icon<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+        label<span class="token punctuation">:</span> <span class="token string">&quot;表格&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    description<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    funcId<span class="token punctuation">:</span> <span class="token string">&quot;bfunc401&quot;</span><span class="token punctuation">,</span>
+    href<span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    icon<span class="token punctuation">:</span> <span class="token string">&quot;iconcaidan&quot;</span><span class="token punctuation">,</span>
+    label<span class="token punctuation">:</span> <span class="token string">&quot;mock数据&quot;</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token keyword">null</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="使用"><a href="#使用" class="header-anchor">#</a> 使用</h2> <p>封装了 el-menu-item ，只需要引入 sidebar-item ，将所需属性传给它就行了</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-menu</span>
+  <span class="token attr-name">:default-active</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>onRoutes<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>el-menu-vertical-demo<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:background-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>variables.menuBg<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:text-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>variables.menuText<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:active-text-color</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>variables.menuActiveText<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:collapse</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>isCollapse<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">unique-opened</span>
+<span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!--el-menu 不配置 router 属性 自行 click 实现路由切换--&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(item, index) in menuList<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 封装的递归组件 children 有值就递归渲染 menu-item  --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sidebar-item</span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>index<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:item</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-menu</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="sidebar-item"><a href="#sidebar-item" class="header-anchor">#</a> sidebar-item</h2> <p>这是封装的 em-menu-item 里面用的是固定值，<code>label</code> , <code>icon</code> , <code>children</code> , <code>funcId</code> , 所以必须是这些字段</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-submenu</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.children.length<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.funcId<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>icon iconfont el-icon-<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.icon<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ item.label }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(m, i) in item.children<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sidebar-item</span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>i<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:item</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>m<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nest-menu<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-submenu</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-menu-item</span> <span class="token attr-name">:index</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.href<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-else</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>clickRouter(item)<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>icon iconfont el-icon-<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item.icon<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ item.label }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-menu-item</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="点击侧边栏，跳转与刷新路由"><a href="#点击侧边栏，跳转与刷新路由" class="header-anchor">#</a> 点击侧边栏，跳转与刷新路由</h2> <p>spa(单页应用)有一个小缺陷，就是用户点击当前高亮的路由并不会刷新 view，因为 vue-router 会拦截你的路由，它判断你的 url 并没有任何变化，所以它不会触发任何钩子或者是 view 的变化（api 原理就是这）。在公司做的第一个 vue 项目济源农商行就遇到了这个问题，当时是加个时间戳。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">clickRouter</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    path<span class="token punctuation">:</span>item<span class="token punctuation">.</span>href
+    query<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      t<span class="token punctuation">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//保证每次点击路由的query项都是不一样的，确保会重新刷新view</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>现在采取的方案是判断当前点击的菜单路由和当前的路由是否一致，一致的时候，会先跳转到一个专门 Redirect 的页面，它会将路由重定向到我想去的页面，这样就起到了刷新的效果了。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code> <span class="token comment">// 侧边栏点击事件，切换路由</span>
+<span class="token function">clickRouter</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> fullPath <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>href <span class="token operator">==</span> fullPath<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//hack vue-router 再次点击不会刷新的缺陷</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> <span class="token string">&quot;/redirect&quot;</span> <span class="token operator">+</span> fullPath
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 跳转其他路由</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        path<span class="token punctuation">:</span> item<span class="token punctuation">.</span>href
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="redirect"><a href="#redirect" class="header-anchor">#</a> redirect</h2> <p>redirect 页面在重定向回原始页面
+<code>view/redirect/index.vue</code></p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> params<span class="token punctuation">,</span> query <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token punctuation">{</span> path <span class="token punctuation">}</span> <span class="token operator">=</span> params<span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&quot;/&quot;</span> <span class="token operator">+</span> path<span class="token punctuation">,</span> query <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">render</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">h</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// avoid warning message</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/front-end/vue2manager/Layout.html" class="prev">布局</a></span> <!----></p></div> </main></div><div class="global-ui"><div class="cat-container" data-v-a13867c0><canvas id="vuepress-cat" width="280" height="250" class="live2d" data-v-a13867c0></canvas></div><!----></div></div>
+    <script src="/front-end/assets/js/app.c7135e9d.js" defer></script><script src="/front-end/assets/js/2.1d0a08e0.js" defer></script><script src="/front-end/assets/js/42.bf5027f2.js" defer></script><script src="/front-end/assets/js/5.af0ad02b.js" defer></script>
+  </body>
+</html>

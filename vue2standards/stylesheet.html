@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>css 样式 | 前端技术积累</title>
+    <meta name="description" content="前端技术积累">
+    <link rel="icon" href="/front-end/favicon.png">
+  <link rel="manifest" href="/front-end/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/front-end/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/front-end/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/front-end/assets/css/0.styles.45a4b416.css" as="style"><link rel="preload" href="/front-end/assets/js/app.c7135e9d.js" as="script"><link rel="preload" href="/front-end/assets/js/2.1d0a08e0.js" as="script"><link rel="preload" href="/front-end/assets/js/50.c7bd743b.js" as="script"><link rel="preload" href="/front-end/assets/js/5.af0ad02b.js" as="script"><link rel="prefetch" href="/front-end/assets/js/10.5c60d517.js"><link rel="prefetch" href="/front-end/assets/js/11.04c7b6f7.js"><link rel="prefetch" href="/front-end/assets/js/12.2631a9cc.js"><link rel="prefetch" href="/front-end/assets/js/13.d013621e.js"><link rel="prefetch" href="/front-end/assets/js/14.a8e96e0a.js"><link rel="prefetch" href="/front-end/assets/js/15.110ef80e.js"><link rel="prefetch" href="/front-end/assets/js/16.437974b1.js"><link rel="prefetch" href="/front-end/assets/js/17.cc850d22.js"><link rel="prefetch" href="/front-end/assets/js/18.7a43d55d.js"><link rel="prefetch" href="/front-end/assets/js/19.3e51c5fd.js"><link rel="prefetch" href="/front-end/assets/js/20.eebe5ba5.js"><link rel="prefetch" href="/front-end/assets/js/21.bf474d6d.js"><link rel="prefetch" href="/front-end/assets/js/22.73573e5f.js"><link rel="prefetch" href="/front-end/assets/js/23.a1884b15.js"><link rel="prefetch" href="/front-end/assets/js/24.74e1c549.js"><link rel="prefetch" href="/front-end/assets/js/25.cb237747.js"><link rel="prefetch" href="/front-end/assets/js/26.64e2b81b.js"><link rel="prefetch" href="/front-end/assets/js/27.f9ef4947.js"><link rel="prefetch" href="/front-end/assets/js/28.7bb2f5d7.js"><link rel="prefetch" href="/front-end/assets/js/29.e2efe323.js"><link rel="prefetch" href="/front-end/assets/js/3.2c743d40.js"><link rel="prefetch" href="/front-end/assets/js/30.01a290f1.js"><link rel="prefetch" href="/front-end/assets/js/31.a95c01c0.js"><link rel="prefetch" href="/front-end/assets/js/32.5f35d2dd.js"><link rel="prefetch" href="/front-end/assets/js/33.3e5cbc31.js"><link rel="prefetch" href="/front-end/assets/js/34.cbe14eb2.js"><link rel="prefetch" href="/front-end/assets/js/35.567e2f4c.js"><link rel="prefetch" href="/front-end/assets/js/36.0e4486ed.js"><link rel="prefetch" href="/front-end/assets/js/37.88819989.js"><link rel="prefetch" href="/front-end/assets/js/38.532761e6.js"><link rel="prefetch" href="/front-end/assets/js/39.58f0672e.js"><link rel="prefetch" href="/front-end/assets/js/4.a6f5780b.js"><link rel="prefetch" href="/front-end/assets/js/40.eb8cbeea.js"><link rel="prefetch" href="/front-end/assets/js/41.8106b725.js"><link rel="prefetch" href="/front-end/assets/js/42.bf5027f2.js"><link rel="prefetch" href="/front-end/assets/js/43.a357d906.js"><link rel="prefetch" href="/front-end/assets/js/44.e8ddaddc.js"><link rel="prefetch" href="/front-end/assets/js/45.f1a8ed18.js"><link rel="prefetch" href="/front-end/assets/js/46.ab0f65f9.js"><link rel="prefetch" href="/front-end/assets/js/47.794903bf.js"><link rel="prefetch" href="/front-end/assets/js/48.62a88661.js"><link rel="prefetch" href="/front-end/assets/js/49.22f79c70.js"><link rel="prefetch" href="/front-end/assets/js/51.aa17b27a.js"><link rel="prefetch" href="/front-end/assets/js/52.153e4a87.js"><link rel="prefetch" href="/front-end/assets/js/53.829b7e16.js"><link rel="prefetch" href="/front-end/assets/js/54.8037840a.js"><link rel="prefetch" href="/front-end/assets/js/55.ba2a77b3.js"><link rel="prefetch" href="/front-end/assets/js/6.841c37b8.js"><link rel="prefetch" href="/front-end/assets/js/7.00121bac.js"><link rel="prefetch" href="/front-end/assets/js/8.a4cecec3.js"><link rel="prefetch" href="/front-end/assets/js/9.3945ebc6.js">
+    <link rel="stylesheet" href="/front-end/assets/css/0.styles.45a4b416.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/front-end/" class="home-link router-link-active"><!----> <span class="site-name">前端技术积累</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="front-end" class="dropdown-title"><span class="title">front-end</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front-end/javaScript/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/front-end/problem2solve/" class="nav-link">problem2solve</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue2standards/" class="nav-link router-link-active">vue-standards</a></li><li class="dropdown-item"><!----> <a href="/front-end/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/front-end/security/" class="nav-link">web 安全</a></li></ul></div></div><div class="nav-item"><a href="/front-end/Project/" class="nav-link">Project</a></div><div class="nav-item"><a href="/front-end/Resume/" class="nav-link">Resume</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="front-end" class="dropdown-title"><span class="title">front-end</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front-end/javaScript/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/front-end/problem2solve/" class="nav-link">problem2solve</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue2standards/" class="nav-link router-link-active">vue-standards</a></li><li class="dropdown-item"><!----> <a href="/front-end/electron/" class="nav-link">electron</a></li><li class="dropdown-item"><!----> <a href="/front-end/security/" class="nav-link">web 安全</a></li></ul></div></div><div class="nav-item"><a href="/front-end/Project/" class="nav-link">Project</a></div><div class="nav-item"><a href="/front-end/Resume/" class="nav-link">Resume</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>正文(持续更新...)</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/front-end/vue2standards/" class="sidebar-link">介绍</a></li><li><a href="/front-end/vue2standards/filterAndDirective.html" class="sidebar-link">过滤器和指令</a></li><li><a href="/front-end/vue2standards/chartAndIcon.html" class="sidebar-link">图表和图标</a></li><li><a href="/front-end/vue2standards/stylesheet.html" class="active sidebar-link">css 样式</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/front-end/vue2standards/stylesheet.html#css-scoped" class="sidebar-link">css scoped</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2standards/stylesheet.html#scss" class="sidebar-link">scss</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2standards/stylesheet.html#深度作用选择器" class="sidebar-link">深度作用选择器</a></li><li class="sidebar-sub-header"><a href="/front-end/vue2standards/stylesheet.html#css-顺序" class="sidebar-link">css 顺序</a></li></ul></li><li><a href="/front-end/vue2standards/ESLint.html" class="sidebar-link">ESLint</a></li><li><a href="/front-end/vue2standards/debounce.html" class="sidebar-link">防抖和节流</a></li><li><a href="/front-end/vue2standards/promise.html" class="sidebar-link">异步回调</a></li><li><a href="/front-end/vue2standards/reactiveData.html" class="sidebar-link">响应式数据</a></li><li><a href="/front-end/vue2standards/gitcommit.html" class="sidebar-link">gitcommit</a></li><li><a href="/front-end/vue2standards/oa.html" class="sidebar-link">oa</a></li><li><a href="/front-end/vue2standards/oaBuild.html" class="sidebar-link">oa 打包简单优化</a></li><li><a href="/front-end/vue2standards/deploy.html" class="sidebar-link">前后端分离部署的思考与实践</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="css-样式"><a href="#css-样式" class="header-anchor">#</a> css 样式</h1> <p>vue 为我们提供了 scoped 来解决 css 污染的问题。 它相当于给 css 加了一个作用域的概念。</p> <h2 id="css-scoped"><a href="#css-scoped" class="header-anchor">#</a> css scoped</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.example</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>example<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>hi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>转换结果：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.example[data-v-f3f3eg9]</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>example<span class="token punctuation">&quot;</span></span> <span class="token attr-name">data-v-f3f3eg9</span><span class="token punctuation">&gt;</span></span>hi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>而一般我们都使用 css 预处理器来写 css，这里推荐使用 scss 来</p> <h2 id="scss"><a href="#scss" class="header-anchor">#</a> scss</h2> <p>使用 scss 的文件目录如下</p> <div class="language-tree extra-class"><pre class="language-text"><code>└─src
+  ├─App.vue
+  └─assets
+    ├─css
+    │ ├─mixin.scss --------- // 全局mixin
+    │ ├─transition.scss ---- // transition 动画
+    │ ├─_global.scss ------- // 全局通用样式
+    │ └─_variable.scss ----- // 全局变量
+    └─font
+</code></pre></div><p>然后在 global.scss 中引入相应的 css 样式</p> <div class="language-scss extra-class"><pre class="language-scss"><code><span class="token keyword">@import</span> <span class="token string">&quot;variable.scss&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">&quot;mixin.scss&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">&quot;./transition.scss&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">// 下面是全局通用样式</span>
+<span class="token selector">body </span><span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> Helvetica Neue<span class="token punctuation">,</span> Helvetica<span class="token punctuation">,</span> PingFang SC<span class="token punctuation">,</span> Hiragino Sans GB<span class="token punctuation">,</span> Microsoft
+      YaHei<span class="token punctuation">,</span> Arial<span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+  <span class="token property">text-rendering</span><span class="token punctuation">:</span> optimizeLegibility<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+...
+</code></pre></div><h2 id="深度作用选择器"><a href="#深度作用选择器" class="header-anchor">#</a> 深度作用选择器</h2> <p>这个选择器是 <a href="https://vue-loader.vuejs.org/zh/guide/scoped-css.html#%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E6%A0%B9%E5%85%83%E7%B4%A0" target="_blank" rel="noopener noreferrer">vue-loader<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 提供的,作用更深，可以影响子组件</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.a &gt;&gt;&gt; .b</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* ... */</span>
+  <span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>上述代码将会编译成：</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.a[data-v-f3f3eg9] .b</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Sass 之类的预处理器无法正确解析 &gt;&gt;&gt;。这种情况下你可以使用 /deep/ 或 ::v-deep 操作符取而代之——两者都是 &gt;&gt;&gt; 的别名，同样可以正常工作</p> <h2 id="css-顺序"><a href="#css-顺序" class="header-anchor">#</a> css 顺序</h2> <p>对于 css 的书写，最好是遵循一定的规则，下面是推荐的书写顺序</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">//变量 =&gt;mixin =&gt;位置 =&gt;flex =&gt; 大小 =&gt;文字 =&gt; 背景属性 =&gt; 动画等其他属性</span>
+  <span class="token property">&quot;sort-order&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;$variable&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;$include&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;$extend&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;$import&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;content&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 位置</span>
+    <span class="token string">&quot;position&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;top&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;right&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;bottom&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;left&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;z-index&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;float&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;clear&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;display&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-align&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-flow&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-direction&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-order&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-pack&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-wrap&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;justify-content&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;align-content&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;align-items&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;align-self&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;order&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-basis&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-grow&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;flex-shrink&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 大小</span>
+    <span class="token string">&quot;box-sizing&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;overflow&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;overflow-x&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;overflow-y&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;min-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;max-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;height&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;min-height&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;max-height&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;padding&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;padding-top&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;padding-right&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;padding-bottom&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;padding-left&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-top&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-right&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-bottom&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-left&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-collapse&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-top-collapse&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-right-collapse&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-bottom-collapse&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;margin-left-collapse&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;clip&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;clip-path&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;counter-reset&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;counter-increment&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;direction&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 文字</span>
+    <span class="token string">&quot;font&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-family&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-feature-settings&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-size&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-kerning&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-smoothing&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-stretch&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-variant&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;font-weight&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;hanging-punctuation&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;hyphens&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;quotes&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;line-height&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;letter-spacing&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-align&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-decoration&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-emphasis&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-emphasis-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-emphasis-position&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-emphasis-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-indent&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-justify&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-overflow&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-overflow-ellipsis&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-overflow-mode&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-rendering&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-size-adjust&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-shadow&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;text-transform&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;word-break&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;word-spacing&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;word-wrap&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;word-break&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;tab-size&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;vertical-align&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;white-space&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;list-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;list-style-image&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;list-style-position&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;list-style-type&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;appearance&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 背景</span>
+    <span class="token string">&quot;background&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-attachment&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-clip&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-image&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-repeat&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-repeat-x&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-repeat-y&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-position&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-position-x&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-position-y&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-origin&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;background-size&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;box-decoration-break&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;box-shadow&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;border&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-collapse&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-top&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-right&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-bottom&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-left&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-image&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-top-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-right-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-bottom-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-left-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-spacing&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-top-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-right-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-bottom-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-left-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-top-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-right-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-bottom-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-left-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-radius&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-top-right-radius&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-bottom-right-radius&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-bottom-left-radius&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-top-left-radius&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-radius-topright&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-radius-bottomright&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-radius-bottomleft&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;border-radius-topleft&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;outline&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;outline-width&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;outline-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;outline-color&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;outline-offset&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;perspective&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;perspective-origin&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;table-layout&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 其他</span>
+    <span class="token string">&quot;transform&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transform-origin&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transform-style&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-delay&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-duration&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-iteration-count&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-name&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-play-state&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-timing-function&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;animation-fill-mode&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;backface-visibility&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transition&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transition-delay&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transition-duration&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transition-property&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;transition-timing-function&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;will-change&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token string">&quot;cursor&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;opacity&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;filter&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;visibility&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;zoom&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;marks&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;page-break&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;page-break-before&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;page-break-inside&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;page-break-after&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;pointer-events&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;resize&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;unicode-bidi&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;user-select&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;scrollbar&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;widows&quot;</span>
+  <span class="token punctuation">]</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/front-end/vue2standards/chartAndIcon.html" class="prev">图表和图标</a></span> <span class="next"><a href="/front-end/vue2standards/ESLint.html">ESLint</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="cat-container" data-v-a13867c0><canvas id="vuepress-cat" width="280" height="250" class="live2d" data-v-a13867c0></canvas></div><!----></div></div>
+    <script src="/front-end/assets/js/app.c7135e9d.js" defer></script><script src="/front-end/assets/js/2.1d0a08e0.js" defer></script><script src="/front-end/assets/js/50.c7bd743b.js" defer></script><script src="/front-end/assets/js/5.af0ad02b.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Electron vue 集成 | 前端技术积累</title>
+    <meta name="description" content="前端技术积累">
+    <link rel="icon" href="/front-end/favicon.png">
+  <link rel="manifest" href="/front-end/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/front-end/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/front-end/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/front-end/assets/css/0.styles.45a4b416.css" as="style"><link rel="preload" href="/front-end/assets/js/app.c7135e9d.js" as="script"><link rel="preload" href="/front-end/assets/js/2.1d0a08e0.js" as="script"><link rel="preload" href="/front-end/assets/js/7.00121bac.js" as="script"><link rel="preload" href="/front-end/assets/js/5.af0ad02b.js" as="script"><link rel="prefetch" href="/front-end/assets/js/10.5c60d517.js"><link rel="prefetch" href="/front-end/assets/js/11.04c7b6f7.js"><link rel="prefetch" href="/front-end/assets/js/12.2631a9cc.js"><link rel="prefetch" href="/front-end/assets/js/13.d013621e.js"><link rel="prefetch" href="/front-end/assets/js/14.a8e96e0a.js"><link rel="prefetch" href="/front-end/assets/js/15.110ef80e.js"><link rel="prefetch" href="/front-end/assets/js/16.437974b1.js"><link rel="prefetch" href="/front-end/assets/js/17.cc850d22.js"><link rel="prefetch" href="/front-end/assets/js/18.7a43d55d.js"><link rel="prefetch" href="/front-end/assets/js/19.3e51c5fd.js"><link rel="prefetch" href="/front-end/assets/js/20.eebe5ba5.js"><link rel="prefetch" href="/front-end/assets/js/21.bf474d6d.js"><link rel="prefetch" href="/front-end/assets/js/22.73573e5f.js"><link rel="prefetch" href="/front-end/assets/js/23.a1884b15.js"><link rel="prefetch" href="/front-end/assets/js/24.74e1c549.js"><link rel="prefetch" href="/front-end/assets/js/25.cb237747.js"><link rel="prefetch" href="/front-end/assets/js/26.64e2b81b.js"><link rel="prefetch" href="/front-end/assets/js/27.f9ef4947.js"><link rel="prefetch" href="/front-end/assets/js/28.7bb2f5d7.js"><link rel="prefetch" href="/front-end/assets/js/29.e2efe323.js"><link rel="prefetch" href="/front-end/assets/js/3.2c743d40.js"><link rel="prefetch" href="/front-end/assets/js/30.01a290f1.js"><link rel="prefetch" href="/front-end/assets/js/31.a95c01c0.js"><link rel="prefetch" href="/front-end/assets/js/32.5f35d2dd.js"><link rel="prefetch" href="/front-end/assets/js/33.3e5cbc31.js"><link rel="prefetch" href="/front-end/assets/js/34.cbe14eb2.js"><link rel="prefetch" href="/front-end/assets/js/35.567e2f4c.js"><link rel="prefetch" href="/front-end/assets/js/36.0e4486ed.js"><link rel="prefetch" href="/front-end/assets/js/37.88819989.js"><link rel="prefetch" href="/front-end/assets/js/38.532761e6.js"><link rel="prefetch" href="/front-end/assets/js/39.58f0672e.js"><link rel="prefetch" href="/front-end/assets/js/4.a6f5780b.js"><link rel="prefetch" href="/front-end/assets/js/40.eb8cbeea.js"><link rel="prefetch" href="/front-end/assets/js/41.8106b725.js"><link rel="prefetch" href="/front-end/assets/js/42.bf5027f2.js"><link rel="prefetch" href="/front-end/assets/js/43.a357d906.js"><link rel="prefetch" href="/front-end/assets/js/44.e8ddaddc.js"><link rel="prefetch" href="/front-end/assets/js/45.f1a8ed18.js"><link rel="prefetch" href="/front-end/assets/js/46.ab0f65f9.js"><link rel="prefetch" href="/front-end/assets/js/47.794903bf.js"><link rel="prefetch" href="/front-end/assets/js/48.62a88661.js"><link rel="prefetch" href="/front-end/assets/js/49.22f79c70.js"><link rel="prefetch" href="/front-end/assets/js/50.c7bd743b.js"><link rel="prefetch" href="/front-end/assets/js/51.aa17b27a.js"><link rel="prefetch" href="/front-end/assets/js/52.153e4a87.js"><link rel="prefetch" href="/front-end/assets/js/53.829b7e16.js"><link rel="prefetch" href="/front-end/assets/js/54.8037840a.js"><link rel="prefetch" href="/front-end/assets/js/55.ba2a77b3.js"><link rel="prefetch" href="/front-end/assets/js/6.841c37b8.js"><link rel="prefetch" href="/front-end/assets/js/8.a4cecec3.js"><link rel="prefetch" href="/front-end/assets/js/9.3945ebc6.js">
+    <link rel="stylesheet" href="/front-end/assets/css/0.styles.45a4b416.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/front-end/" class="home-link router-link-active"><!----> <span class="site-name">前端技术积累</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="front-end" class="dropdown-title"><span class="title">front-end</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front-end/javaScript/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/front-end/problem2solve/" class="nav-link">problem2solve</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue2standards/" class="nav-link">vue-standards</a></li><li class="dropdown-item"><!----> <a href="/front-end/electron/" class="nav-link router-link-active">electron</a></li><li class="dropdown-item"><!----> <a href="/front-end/security/" class="nav-link">web 安全</a></li></ul></div></div><div class="nav-item"><a href="/front-end/Project/" class="nav-link">Project</a></div><div class="nav-item"><a href="/front-end/Resume/" class="nav-link">Resume</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="front-end" class="dropdown-title"><span class="title">front-end</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front-end/javaScript/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/front-end/problem2solve/" class="nav-link">problem2solve</a></li><li class="dropdown-item"><!----> <a href="/front-end/vue2standards/" class="nav-link">vue-standards</a></li><li class="dropdown-item"><!----> <a href="/front-end/electron/" class="nav-link router-link-active">electron</a></li><li class="dropdown-item"><!----> <a href="/front-end/security/" class="nav-link">web 安全</a></li></ul></div></div><div class="nav-item"><a href="/front-end/Project/" class="nav-link">Project</a></div><div class="nav-item"><a href="/front-end/Resume/" class="nav-link">Resume</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>正文(持续更新...)</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/front-end/electron/" class="sidebar-link">electron</a></li><li><a href="/front-end/electron/electron-quick-start.html" class="sidebar-link">electron-quick-start</a></li><li><a href="/front-end/electron/electron-process.html" class="active sidebar-link">Electron vue 集成</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#electron-组成" class="sidebar-link">Electron 组成</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#主进程-main-process" class="sidebar-link">主进程 main-process</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#渲染进程-renderer-process" class="sidebar-link">渲染进程 renderer-process</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#体验-electron" class="sidebar-link">体验 electron</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#解决方法" class="sidebar-link">解决方法</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#electron-集成-vue-方案对比" class="sidebar-link">electron 集成 vue 方案对比</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#electron-vue" class="sidebar-link">electron-vue</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#vue-cli-plugin-electron-builder" class="sidebar-link">vue-cli-plugin-electron-builder</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#实战-demo" class="sidebar-link">实战 demo</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#代码设计与组织" class="sidebar-link">代码设计与组织</a></li><li class="sidebar-sub-header"><a href="/front-end/electron/electron-process.html#后续内容以及要解决的问题" class="sidebar-link">后续内容以及要解决的问题</a></li></ul></li><li><a href="/front-end/electron/electron-demo.html" class="sidebar-link">Electron 开发</a></li><li><a href="/front-end/electron/electron-windows.html" class="sidebar-link">Electron 窗口</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="electron-vue-集成"><a href="#electron-vue-集成" class="header-anchor">#</a> Electron vue 集成</h1> <p>Electron = Node.js + Chromium + Native API</p> <h2 id="electron-组成"><a href="#electron-组成" class="header-anchor">#</a> Electron 组成</h2> <p><code>Electron = Node.js + Chromium + Native API</code></p> <ol><li>Node 提供 es 运行环境</li> <li>Chromium 提供 HTML、CSS、DOM 等 web 相关技术</li> <li>Native API 平台特性</li></ol> <p>既然 Electron 提供了这三种环境是不是就意味着在 Electron 里写的 js，都可以使用上述三个环境的各种 api 嘛？当然不是，如果是这样，就会造成混乱，electron 同样采用了浏览器的多进程架构，一个主进程，多个渲染进程</p> <h2 id="主进程-main-process"><a href="#主进程-main-process" class="header-anchor">#</a> 主进程 main-process</h2> <p>主进程作用</p> <ul><li>渲染进程管理（创建/切换/销毁），表现即为窗口的创建，销毁</li> <li>应用生命周期管理</li> <li>主进程，渲染进程通信</li> <li>自动更新</li> <li>工具条菜单栏注册</li></ul> <h2 id="渲染进程-renderer-process"><a href="#渲染进程-renderer-process" class="header-anchor">#</a> 渲染进程 renderer-process</h2> <p>界面交互相关的，具体的业务功能，都由 renderer 进程来做，和平时开发 web 项目一致。</p> <p>渲染进程之间是相互独立，不会共享内存和状态的。如果把主进程理解为浏览器，那么渲染进程就相遇与浏览器中的 Tab 页面，每个页面都是独立的，不能共享状态。比如 tab1 网页中的 window 上挂在一个 window.a,但在 tab2 中的 window 上你并不会获得 window.a 这个变量，因为他们在不同的进程里。这样的一个好处就是，一个 Tab 死掉了，并不会影响另一个网页的内容，也并不会卡死浏览器。
+在 electron 中的场景大致就是一下这些</p> <ul><li>一个渲染进程死了，另一个渲染进程页不会死，照常运行</li> <li>一个渲染进程死了，主进程不会卡死，还是可以开启其他窗口</li> <li>一个渲染进程页死了，渲染进程也会死</li></ul> <h2 id="体验-electron"><a href="#体验-electron" class="header-anchor">#</a> 体验 electron</h2> <p>官网有一个简单的仓库，我们直接下载下来尝试</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Clone this repository</span>
+<span class="token function">git</span> clone https://github.com/electron/electron-quick-start
+<span class="token comment"># Go into the repository</span>
+<span class="token builtin class-name">cd</span> electron-quick-start
+<span class="token comment"># Install dependencies</span>
+<span class="token function">npm</span> <span class="token function">install</span>
+<span class="token comment"># Run the app</span>
+<span class="token function">npm</span> start
+</code></pre></div><p>结果很不幸的在 install 安装依赖的时候 命令行卡在 node install.js，这个文件是要从国外网络下载 electron.zip
+导致下载不下来</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>npm 下载的包有两种类型，一种是就是 npm 上的 js 包直接就下完了，还有一种是 npm 包里去下载另外的开源软件，例如 node-sass, electron
+这种即便使用 npm 淘宝镜像也是下载不下来的，必要的时候还是要科学上网的。</p></div> <h2 id="解决方法"><a href="#解决方法" class="header-anchor">#</a> 解决方法</h2> <ol><li>前往淘宝镜像
+https://npm.taobao.org/mirrors/electron/8.3.0/
+手动下载对应的包，我用 windows，所以下载 electron-v8.3.0-win32-x64.zip
+然后在 node_modules\electron\下创建 dist 文件夹。
+将下载的压缩包解压进刚刚创建的 dist。
+在 node_modules\electron\中创建 path.txt，内容为 electron.exe（对应自己的平台，不同平台不一样）</li></ol> <p>这每次都要这样干也太麻烦了，</p> <ol start="2"><li><p>设置开源镜像软件代理，在 package.json 同目录下新建 .npmrc 文件，内容为 electron_mirror=https://npm.taobao.org/mirrors/electron/</p></li> <li><p>删除 node_modules 重新执行 npm i,下载依赖，成功后执 npm run start</p></li></ol> <h2 id="electron-集成-vue-方案对比"><a href="#electron-集成-vue-方案对比" class="header-anchor">#</a> electron 集成 vue 方案对比</h2> <ol><li><p>electron-vue</p></li> <li><p>vue-cli-plugin-electron-builder</p></li></ol> <h2 id="electron-vue"><a href="#electron-vue" class="header-anchor">#</a> electron-vue</h2> <p>electron-vue 是 vue-cli2.0 的版本，现在 cli 的最新版本已经是都已经出到 4.3.1 了，再者 electron-vue 中间断更了很久我看了下提交记录有长达一年半的时间没有更新任何内容。不过这个集成方案里面用到的技术还是很有参考意义，并且使用这个方案也是能做出产品的。</p> <h2 id="vue-cli-plugin-electron-builder"><a href="#vue-cli-plugin-electron-builder" class="header-anchor">#</a> vue-cli-plugin-electron-builder</h2> <p>vue-cli-plugin-electron-builder 是 cli 插件市场中的 electron 集成方案，项目结构也比较清晰，基本和 vue 项目保持一致。</p> <p>并且集成了开发环境与生产环境，打包使用的也是主流的 electron-builder 方案。</p> <blockquote><p>complete solution to package and build a ready for distribution Electron, Proton Native or Muon app for macOS, Windows and Linux with “auto update” support out of the box.</p></blockquote> <p>简单的说，electron-builder 就是有比 electron-packager 有更丰富的的功能，支持更多的平台，同时也支持了自动更新。除了这几点之外，由 electron-builder 打出的包更为轻量，并且可以打包出不暴露源码的 setup 安装程序。</p> <h2 id="实战-demo"><a href="#实战-demo" class="header-anchor">#</a> 实战 demo</h2> <p>接下来的部分是对 vue 和 electron 开发的 demo。个人写文档都是采用 md 文件来记录，奈何公司 confluence 不支持 md 格式文件导入。
+那就开发一个 md 格式文件转成公司 confluence 支持的格式。麻雀虽小，五脏俱全，包含，开发，默认打包，以及安装软件问题等。</p> <p>先把需要的环境配好</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> config <span class="token builtin class-name">set</span> <span class="token assign-left variable">sass_binary_site</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/node-sass
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span> <span class="token assign-left variable">electron_mirror</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/electron/
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span>  <span class="token assign-left variable">phantomjs_cdnurl</span><span class="token operator">=</span>http://cnpmjs.org/downloads
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span>  <span class="token assign-left variable">electron_mirror</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/electron/
+<span class="token function">npm</span> config <span class="token builtin class-name">set</span>  <span class="token assign-left variable">chromedriver_cdnurl</span><span class="token operator">=</span>https://npm.taobao.org/mirrors/chromedriver
+</code></pre></div><p>把这些可能用到的开源软件包先配上代理</p> <div class="language-bash extra-class"><pre class="language-bash"><code>vue create vue-electron-demo
+</code></pre></div><p>和平常 vue 开发一样，选择自己需要的选项，</p> <div class="language-bash extra-class"><pre class="language-bash"><code>├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─babel.config.js
+├─package-lock.json
+├─package.json
+├─public
+│ ├─favicon.ico
+│ └─index.html
+├─README.md
+└─src
+  ├─App.vue
+  ├─assets
+  │ └─logo.png
+  ├─components
+  │ └─HelloWorld.vue
+  ├─main.js
+  ├─router
+  │ └─index.js
+  ├─store
+  │ └─index.js
+  └─views
+    ├─About.vue
+    └─Home.vue
+
+</code></pre></div><p>随后添加 vue-cli-plugin-electron-builder</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+vue <span class="token function">add</span> vue-cli-plugin-electron-builder
+</code></pre></div><p>接下来等待安装成功即可</p> <p>安装完成后，目录会发生改变</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─.npmrc
+├─babel.config.js
+├─package-lock.json
+├─package.json
+├─public
+│ ├─favicon.ico
+│ └─index.html
+├─README.md
+└─src
+  ├─App.vue
+  ├─assets
+  │ └─logo.png
+  ├─background.js    //多的主进程入口文件
+  ├─components
+  │ └─HelloWorld.vue
+  ├─main.js
+  ├─router
+  │ └─index.js
+  ├─store
+  │ └─index.js
+  └─views
+    ├─About.vue
+    └─Home.vue
+
+</code></pre></div><p>其中 package.json 中会 多几条 script 脚本</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;serve&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service serve&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service build&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service lint&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;electron:build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service electron:build&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;electron:serve&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vue-cli-service electron:serve&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;postinstall&quot;</span><span class="token operator">:</span> <span class="token string">&quot;electron-builder install-app-deps&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;postuninstall&quot;</span><span class="token operator">:</span> <span class="token string">&quot;electron-builder install-app-deps&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们执行 npm run electron:server，等待片刻</p> <p>打开如下界面表示启动成功</p> <p><img src="/front-end/assets/img/electron-vue-start.2d9ac1cb.png" alt="electron-vue-start"></p> <p>先测试下打包</p> <p>执行 <code>npm run electron:build</code></p> <p>控制台会输出打包过程信息</p> <div class="language-bash extra-class"><pre class="language-bash"><code> INFO  Building app with electron-builder:
+  • electron-builder  <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">21.2</span>.0 <span class="token assign-left variable">os</span><span class="token operator">=</span><span class="token number">10.0</span>.18363
+  • description is missed <span class="token keyword">in</span> the package.json  <span class="token assign-left variable">appPackageFile</span><span class="token operator">=</span>E:<span class="token punctuation">\</span>electron<span class="token punctuation">\</span>vue-electron-demo<span class="token punctuation">\</span>dist_electron<span class="token punctuation">\</span>bundled<span class="token punctuation">\</span>package.json
+  • author is missed <span class="token keyword">in</span> the package.json  <span class="token assign-left variable">appPackageFile</span><span class="token operator">=</span>E:<span class="token punctuation">\</span>electron<span class="token punctuation">\</span>vue-electron-demo<span class="token punctuation">\</span>dist_electron<span class="token punctuation">\</span>bundled<span class="token punctuation">\</span>package.json
+  • writing effective config  <span class="token assign-left variable">file</span><span class="token operator">=</span>dist_electron<span class="token punctuation">\</span>builder-effective-config.yaml
+  • packaging       <span class="token assign-left variable">platform</span><span class="token operator">=</span>win32 <span class="token assign-left variable">arch</span><span class="token operator">=</span>x64 <span class="token assign-left variable">electron</span><span class="token operator">=</span><span class="token number">6.1</span>.12 <span class="token assign-left variable">appOutDir</span><span class="token operator">=</span>dist_electron<span class="token punctuation">\</span>win-unpacked
+  • default Electron icon is used  <span class="token assign-left variable">reason</span><span class="token operator">=</span>application icon is not <span class="token builtin class-name">set</span>
+  • downloading     <span class="token assign-left variable">url</span><span class="token operator">=</span>https://github.com/electron-userland/electron-builder-binaries/releases/download/winCodeSign-2.5.0/winCodeSign-2.5.0.7z <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">5.6</span> MB <span class="token assign-left variable">parts</span><span class="token operator">=</span><span class="token number">1</span>
+
+</code></pre></div><p>可以看到在打包的时候会去 github 官网上下载 winCodeSign 软件包，直接从 GitHub 上下载出现的问题就是一直卡在下载过程然后失败。最简单的方法就是科学上网，另外就是想办法从 github 上把软件包下载下来放在本地。</p> <p>上述问题解决后，继续打包</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+ INFO  Building app with electron-builder:
+  • electron-builder  <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">21.2</span>.0 <span class="token assign-left variable">os</span><span class="token operator">=</span><span class="token number">10.0</span>.18363
+  • description is missed <span class="token keyword">in</span> the package.json  <span class="token assign-left variable">appPackageFile</span><span class="token operator">=</span>E:<span class="token punctuation">\</span>electron<span class="token punctuation">\</span>vue-electron-demo<span class="token punctuation">\</span>dist_electron<span class="token punctuation">\</span>bundled<span class="token punctuation">\</span>package.json
+  • author is missed <span class="token keyword">in</span> the package.json  <span class="token assign-left variable">appPackageFile</span><span class="token operator">=</span>E:<span class="token punctuation">\</span>electron<span class="token punctuation">\</span>vue-electron-demo<span class="token punctuation">\</span>dist_electron<span class="token punctuation">\</span>bundled<span class="token punctuation">\</span>package.json
+  • writing effective config  <span class="token assign-left variable">file</span><span class="token operator">=</span>dist_electron<span class="token punctuation">\</span>builder-effective-config.yaml
+  • packaging       <span class="token assign-left variable">platform</span><span class="token operator">=</span>win32 <span class="token assign-left variable">arch</span><span class="token operator">=</span>x64 <span class="token assign-left variable">electron</span><span class="token operator">=</span><span class="token number">6.1</span>.12 <span class="token assign-left variable">appOutDir</span><span class="token operator">=</span>dist_electron<span class="token punctuation">\</span>win-unpacked
+  • default Electron icon is used  <span class="token assign-left variable">reason</span><span class="token operator">=</span>application icon is not <span class="token builtin class-name">set</span>
+  • building        <span class="token assign-left variable">target</span><span class="token operator">=</span>nsis <span class="token assign-left variable">file</span><span class="token operator">=</span>dist_electron<span class="token punctuation">\</span>vue-electron-demo Setup <span class="token number">0.1</span>.0.exe <span class="token assign-left variable">archs</span><span class="token operator">=</span>x64 <span class="token assign-left variable">oneClick</span><span class="token operator">=</span>true <span class="token assign-left variable">perMachine</span><span class="token operator">=</span>false
+  • building block map  <span class="token assign-left variable">blockMapFile</span><span class="token operator">=</span>dist_electron<span class="token punctuation">\</span>vue-electron-demo Setup <span class="token number">0.1</span>.0.exe.blockmap
+ DONE  Build complete<span class="token operator">!</span>
+
+</code></pre></div><p>当看到 DONE Build complete!表示打包成功</p> <div class="language-bash extra-class"><pre class="language-bash"><code>
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─.npmrc
+├─babel.config.js
+├─dist_electron   //打包后生成的文件夹
+│ ├─builder-effective-config.yaml
+│ ├─bundled
+│ │ ├─background.js
+│ │ ├─css
+│ │ │ └─app.4aa4aa41.css
+│ │ ├─favicon.ico
+│ │ ├─img
+│ │ │ └─logo.82b9c7a5.png
+│ │ ├─index.html
+│ │ ├─js
+│ │ │ ├─about.d5b24448.js
+│ │ │ ├─about.d5b24448.js.map
+│ │ │ ├─app.a4a7a228.js
+│ │ │ ├─app.a4a7a228.js.map
+│ │ │ ├─chunk-vendors.284623cd.js
+│ │ │ └─chunk-vendors.284623cd.js.map
+│ │ ├─node_modules
+│ │ └─package.json
+│ ├─index.js
+│ ├─package.json
+│ ├─vue-electron-demo Setup <span class="token number">0.1</span>.0.exe  //exe安装包
+│ ├─vue-electron-demo Setup <span class="token number">0.1</span>.0.exe.blockmap
+│ └─win-unpacked    //免安装 绿色版
+
+</code></pre></div><p>至此一个小流程就走完了</p> <p>我尝试安装了下，直接给我安装到 c 盘了，原因是没有进行打包配置</p> <p>接下来更改一下打包配置项。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//vue-config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  pluginOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    electronBuilder<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      builderOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        productName<span class="token punctuation">:</span> <span class="token string">&quot;mac-test&quot;</span><span class="token punctuation">,</span>
+        appId<span class="token punctuation">:</span> <span class="token string">&quot;mac-test.desktop&quot;</span><span class="token punctuation">,</span>
+        <span class="token comment">// win: {</span>
+        <span class="token comment">//   icon: &quot;./public/favicon.ico&quot;</span>
+        <span class="token comment">// },</span>
+        <span class="token comment">// mac: {</span>
+        <span class="token comment">//   icon: &quot;./public/app.png&quot;</span>
+        <span class="token comment">// }</span>
+        publish<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token comment">//这个是升级用的</span>
+          <span class="token punctuation">{</span>
+            provider<span class="token punctuation">:</span> <span class="token string">&quot;generic&quot;</span><span class="token punctuation">,</span>
+            url<span class="token punctuation">:</span> <span class="token string">&quot;http://127.0.0.1:80/&quot;</span><span class="token punctuation">,</span> <span class="token comment">//这里是我本地开的服务器的地址</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        nsis<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          oneClick<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">// 是否一键安装</span>
+          allowElevation<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 允许请求提升。 如果为false，则用户必须使用提升的权限重新启动安装程序。</span>
+          allowToChangeInstallationDirectory<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 允许修改安装目录</span>
+          <span class="token comment">// installerIcon: &quot;./build/icons/aaa.ico&quot;, // 安装图标</span>
+          <span class="token comment">// uninstallerIcon: &quot;./build/icons/bbb.ico&quot;, //卸载图标</span>
+          <span class="token comment">// installerHeaderIcon: &quot;./build/icons/aaa.ico&quot;, // 安装时头部图标</span>
+          createDesktopShortcut<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 创建桌面图标</span>
+          createStartMenuShortcut<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 创建开始菜单图标</span>
+          shortcutName<span class="token punctuation">:</span> <span class="token string">&quot;mac-test&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 图标名称</span>
+          <span class="token comment">// include: &quot;build/script/installer.nsh&quot; // 包含的自定义nsis脚本</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>打包后安装 exe 文件</p> <p><img src="/front-end/assets/img/electron-install.1f27f590.gif" alt="install"></p> <h2 id="代码设计与组织"><a href="#代码设计与组织" class="header-anchor">#</a> 代码设计与组织</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>
+├─.browserslistrc
+├─.eslintrc.js
+├─.gitignore
+├─.npmrc
+├─.prettierrc
+├─.vscode
+├─babel.config.js
+├─debug.log
+├─dist_electron
+├─package-lock.json
+├─package.json
+├─public
+├─README.md
+├─src
+│ ├─App.vue
+│ ├─assets
+│ │ └─logo.png
+│ ├─background.js
+│ ├─components
+│ ├─main-process
+│ │ ├─communication -------------- // 进程通信
+│ │ │ └─ipc.js
+│ │ ├─menus ---------------------- // 菜单管理
+│ │ │ ├─config.js
+│ │ │ └─create.js
+│ │ ├─native-ui
+│ │ │ ├─dialogs ------------------ // 弹框，保存打开文件
+│ │ │ │ ├─error.js
+│ │ │ │ ├─index.js
+│ │ │ │ ├─information.js
+│ │ │ │ ├─open-file.js
+│ │ │ │ └─save.js
+│ │ │ ├─drag
+│ │ │ │ ├─codeIcon.png
+│ │ │ │ └─drag.js
+│ │ │ ├─notice ------------------- // 系统通知
+│ │ │ │ └─index.js
+│ │ │ └─tray --------------------- // 系统托盘
+│ │ │   ├─iconTemplate.png
+│ │ │   ├─iconTemplate@2x.png
+│ │ │   ├─tray.js
+│ │ │   └─windows-icon@2x.png
+│ │ ├─shortcuts ------------------ // 全局快捷键
+│ │ ├─system
+│ │ ├─update
+│ │ │ └─checkUpdate.js ----------- // 检测更新
+│ │ └─windows
+│ │   └─create-window.js --------- // 窗口管理
+│ ├─main.js
+│ ├─router
+│ ├─store
+│ ├─utils
+│ └─views
+├─vue.config.js
+</code></pre></div><h2 id="后续内容以及要解决的问题"><a href="#后续内容以及要解决的问题" class="header-anchor">#</a> 后续内容以及要解决的问题</h2> <ol><li>electron 原生菜单的自定义，菜单事件，菜单自定义事件。以及渲染进程的菜单自定义，菜单绑定快捷键，全局快捷键 --耿艳</li> <li>进程间通信，交互包含选择本地文件上传，下载文件保存到本地。文件下载的默认位置配置项，类似微信，ipc 封装思路--辛柳</li> <li>多窗口的维护与管理。窗口的最大化，最小化，显示在最前面的窗口，系统托盘，托盘闪烁。 --李阿龙</li> <li>electron-builder 方向打包。 --徐会忠</li> <li>electron-updater 方向升级方案，全量，增量。实现方式，以及各种方案适用场景，优劣对比 --李惠荣</li> <li>调用 c++ dll 文件 --刘浩</li> <li>要有 demo git 链接，http://gitlab.idc.safecenter.cn/electron。放在这个组下，自己新建git仓库</li></ol> <p>electron-localshortcut
+electron-store</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/front-end/electron/electron-quick-start.html" class="prev">electron-quick-start</a></span> <span class="next"><a href="/front-end/electron/electron-demo.html">Electron 开发</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="cat-container" data-v-a13867c0><canvas id="vuepress-cat" width="280" height="250" class="live2d" data-v-a13867c0></canvas></div><!----></div></div>
+    <script src="/front-end/assets/js/app.c7135e9d.js" defer></script><script src="/front-end/assets/js/2.1d0a08e0.js" defer></script><script src="/front-end/assets/js/7.00121bac.js" defer></script><script src="/front-end/assets/js/5.af0ad02b.js" defer></script>
+  </body>
+</html>
