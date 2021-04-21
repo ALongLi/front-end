@@ -3,7 +3,7 @@
  * @Author: lal
  * @Date: 2020-01-04 16:04:03
  * @LastEditors: lal
- * @LastEditTime: 2020-09-04 16:48:20
+ * @LastEditTime: 2020-10-09 09:43:45
  */
 module.exports = {
   title: "信大捷安前端团队",
@@ -69,6 +69,7 @@ module.exports = {
             "移动端之骨架屏",
             "pc大屏自适应",
             "cli",
+            "vscode-setting",
           ],
         },
       ],
